@@ -19,13 +19,85 @@
 #include <defs.h>
 #include <stub.c>
 
-#define reg_mprj_slave (*(volatile uint32_t*)0x30000000)
-
+#define reg_mprj_slave_ioscan (*(volatile uint32_t*)0x30000000)
+#define reg_mprj_slave_ctrl (*(volatile uint32_t*)0x30000004)
 /*
 	Wishbone Test:
 		- Configures MPRJ lower 8-IO pins as outputs
 		- Checks counter value through the wishbone port
 */
+
+const uint32_t program[67] = {
+    0x01234567,//MEM[255:252]
+	0x00000000,//MEM[251:248]
+	0x00000000,//MEM[247:244]
+	0x00000000,//MEM[243:240]
+	0x00000000,//MEM[239:236]
+	0x00000000,//MEM[235:232]
+	0x00000000,//MEM[231:228]
+	0x00000000,//MEM[227:224]
+	0x00000000,//MEM[223:220]
+	0x00000000,//MEM[219:216]
+	0x00000000,//MEM[215:212]
+	0x00000000,//MEM[211:208]
+	0x00000000,//MEM[207:204]
+	0x00000000,//MEM[203:200]
+	0x00000000,//MEM[199:196]
+	0x00000000,//MEM[195:192]
+	0x00000000,//MEM[191:188]
+	0x00000000,//MEM[187:184]
+	0x00000000,//MEM[183:180]
+	0x00000000,//MEM[179:176]
+	0x00000000,//MEM[175:172]
+	0x00000000,//MEM[171:168]
+	0x00000000,//MEM[167:164]
+	0x00000000,//MEM[163:160]
+	0x00000000,//MEM[159:156]
+	0x00000000,//MEM[155:152]
+	0x00000000,//MEM[151:148]
+	0x00000000,//MEM[147:144]
+	0x00000000,//MEM[143:140]
+	0x00000000,//MEM[139:136]
+	0x00000000,//MEM[135:132]
+	0x00000000,//MEM[131:128]
+	0x00000000,//MEM[127:124]
+	0x00000000,//MEM[123:120]
+	0x00000000,//MEM[119:116]
+	0x00000000,//MEM[115:112]
+	0x00000000,//MEM[111:108]
+	0x00000000,//MEM[107:104]
+	0x00000000,//MEM[103:100]
+	0x00000000,//MEM[99:96]
+	0x00000000,//MEM[95:92]
+	0x00000000,//MEM[91:88]
+	0x00000000,//MEM[87:84]
+	0x00000000,//MEM[83:80]
+	0x00000000,//MEM[79:76]
+	0x00000000,//MEM[75:72]
+	0x00000000,//MEM[71:68]
+	0x00000000,//MEM[67:64]
+	0x00000000,//MEM[63:60]
+	0x00000000,//MEM[59:56]
+	0x00000000,//MEM[55:52]
+	0x00000000,//MEM[51:48]
+	0x00000000,//MEM[47:44]
+	0x00000000,//MEM[43:40]
+	0x00000000,//MEM[39:36]
+	0x00000000,//MEM[35:32]
+	0x00000000,//MEM[31:28]
+	0x00000000,//MEM[27:24]
+	0x00000000,//MEM[23:20]
+	0x00000000,//MEM[19:16]
+	0x10000000,//MEM[15:12]
+	0xffca1e81,//MEM[11:8]
+	0x8f809fda,//MEM[7:4]
+	0x1ffcc30f,//MEM[3:0]
+	0b00000000000000000000000000000000, //TEMP, STATUS_CTRL, CNT_H, CNT_L
+	0b11110000000000000000000011111111, //IO_OUT, IO_IN, SEG_EXE_H, SEG_EXE_L
+	0b11110000111100000000000000000010, //ACC, IR, PC, SEG[4 bit], CU[3 bit]
+};
+
+uint32_t scan_in[67] = {0};
 
 void main()
 {
@@ -81,10 +153,65 @@ void main()
 
     // Flag start of the test
 	reg_mprj_datal = 0xAB600000;
+    int i = 0;
 
-    reg_mprj_slave = 0x00002710;
-    reg_mprj_datal = 0xAB610000;
-    if (reg_mprj_slave == 0x2B3D) {
-        reg_mprj_datal = 0xAB610000;
+    int cnt = 0;
+
+    for(i = 0; i < 67; i++) {
+        reg_mprj_slave_ioscan = program[i];
+        if(reg_mprj_slave_ioscan != program[i]) {
+            reg_mprj_datal = 0xAB6F0000; //early fail
+            while(1);
+        }
+        reg_mprj_slave_ctrl = 0b01;
+        //wait until slave is ready
+        cnt = 0;
+        while(reg_mprj_slave_ctrl & 0b11 != 0b00) {
+            cnt++;
+            if(cnt > 5) {
+                reg_mprj_datal = 0xAB8F0000; //read-in timeout fail
+                while(1);
+            }
+        }
     }
+
+    reg_mprj_slave_ctrl = 0b10;
+    //wait until slave halts
+    while(reg_mprj_slave_ctrl & 0b100 == 0b000); //wait until the halt_out bit is set
+    reg_mprj_datal = 0xAB620000; //halt detected flag
+    reg_mprj_slave_ctrl = 0b00; //turn off the processor
+
+    for(i = 0; i < 67; i++) {
+        reg_mprj_datal = 0xF0000000 | (i << 16);
+        reg_mprj_slave_ioscan = program[i];
+        if(reg_mprj_slave_ioscan != program[i]) {
+            reg_mprj_datal = 0xAB6F0000; //early fail
+            while(1);
+        }
+        reg_mprj_slave_ctrl = 0b01;
+        //wait until slave is ready
+        cnt = 0;
+        while(reg_mprj_slave_ctrl & 0b11 != 0b00) {
+            cnt++;
+            if(cnt > 10) {
+                reg_mprj_datal = 0xAB9F0000; //read-out timeout fail
+                while(1);
+            }
+        }
+        //scan out the result
+        scan_in[i] = reg_mprj_slave_ioscan;
+    }
+
+    if(scan_in[60] != 0x00010000) {
+        reg_mprj_datal = 0xAB7F0000; //readout fail
+        while(1);
+    }
+
+    reg_mprj_datal = 0xAB610000; //finish
+
+    while(1);
+    //reg_mprj_datal = 0xAB610000;
+    // if (reg_mprj_slave == 0x2B3D) {
+    //     reg_mprj_datal = 0xAB610000;
+    // }
 }

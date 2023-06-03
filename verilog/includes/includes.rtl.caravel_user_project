@@ -1,5 +1,10 @@
 # Caravel user project includes
 -v $(USER_PROJECT_VERILOG)/rtl/user_project_wrapper.v	     
 -v $(USER_PROJECT_VERILOG)/rtl/user_proj_example.v
-
+-v $(USER_PROJECT_VERILOG)/rtl/accumulator_microcontroller.v
+-v $(USER_PROJECT_VERILOG)/rtl/alu.v
+-v $(USER_PROJECT_VERILOG)/rtl/Control_Status_Registers.v
+-v $(USER_PROJECT_VERILOG)/rtl/control_unit.v
+-v $(USER_PROJECT_VERILOG)/rtl/memory_bank.v
+-v $(USER_PROJECT_VERILOG)/rtl/shift_register.v
  

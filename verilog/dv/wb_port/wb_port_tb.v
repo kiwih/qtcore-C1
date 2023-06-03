@@ -139,13 +139,66 @@ module wb_port_tb;
 	`endif 
 
 	initial begin
+        wait(uut.chip_core.mprj.mprj.proc_go);
+        $display("proc_go is high");
+        $display("Reserved: %b, CU: %b, SEG: %b, PC: %x, IR: %x, ACC: %x",
+            uut.chip_core.mprj.mprj.qtcore_C1.ctrl_unit.reserved_register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.ctrl_unit.state_register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.SEG_Register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.PC_Register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.IR_Register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.ACC_Register.internal_data);
+
+        $display("SEGEXE_L: %b, SEGEXE_H: %b, IO_IN: %b, IO_OUT: %b",
+            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.segexe_l_reg.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.segexe_h_reg.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.io_in_reg.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.io_out_reg.internal_data);
+        
+        $display("MEM[0]: %x, MEM[1]: %x, MEM[2]: %x, MEM[3]: %x, MEM[4]: %x, MEM[14]: %x, MEM[15]: %x",
+            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[0].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[1].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[2].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[3].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[4].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[14].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[15].mem_cell.internal_data);
+
+        wait(uut.chip_core.mprj.mprj.halt_out);
+        $display("halt_out is high");
+        $display("Reserved: %b, CU: %b, SEG: %b, PC: %x, IR: %x, ACC: %x",
+            uut.chip_core.mprj.mprj.qtcore_C1.ctrl_unit.reserved_register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.ctrl_unit.state_register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.SEG_Register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.PC_Register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.IR_Register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.ACC_Register.internal_data);
+
+        $display("SEGEXE_L: %b, SEGEXE_H: %b, IO_IN: %b, IO_OUT: %b",
+            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.segexe_l_reg.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.segexe_h_reg.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.io_in_reg.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.io_out_reg.internal_data);
+        
+        $display("MEM[0]: %x, MEM[1]: %x, MEM[2]: %x, MEM[3]: %x, MEM[4]: %x, MEM[14]: %x, MEM[15]: %x",
+            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[0].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[1].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[2].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[3].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[4].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[14].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[15].mem_cell.internal_data);
+    end
+
+
+	initial begin
 		$dumpfile("wb_port.vcd");
 		$dumpvars(0, wb_port_tb);
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
-		repeat (70) begin
-			repeat (1000) @(posedge clock);
-			// $display("+1000 cycles");
+		repeat (15) begin
+			repeat (100000) @(posedge clock);
+			$display("+100000 cycles");
 		end
 		$display("%c[1;31m",27);
 		`ifdef GL
@@ -158,8 +211,58 @@ module wb_port_tb;
 	end
 
 	initial begin
+		wait(checkbits == 16'hAB6F);
+		$display("%c[1;31m",27);
+		`ifdef GL
+			$display ("Monitor: Early fail, Test Mega-Project WB Port (GL) Failed");
+		`else
+			$display ("Monitor: Early fail, Test Mega-Project WB Port (RTL) Failed");
+		`endif
+		$display("%c[0m",27);
+		$finish;
+	end
+
+	initial begin
+		wait(checkbits == 16'hAB7F);
+		$display("%c[1;31m",27);
+		`ifdef GL
+			$display ("Monitor: Readout fail, Test Mega-Project WB Port (GL) Failed");
+		`else
+			$display ("Monitor: Readout fail, Test Mega-Project WB Port (RTL) Failed");
+		`endif
+		$display("%c[0m",27);
+		$finish;
+	end
+
+	initial begin
+		wait(checkbits == 16'hAB8F);
+		$display("%c[1;31m",27);
+		`ifdef GL
+			$display ("Monitor: Read-in timeout fail, Test Mega-Project WB Port (GL) Failed");
+		`else
+			$display ("Monitor: Read-in timeout fail, Test Mega-Project WB Port (RTL) Failed");
+		`endif
+		$display("%c[0m",27);
+		$finish;
+	end
+
+	initial begin
+		wait(checkbits == 16'hAB9F);
+		$display("%c[1;31m",27);
+		`ifdef GL
+			$display ("Monitor: Read-out timeout fail, Test Mega-Project WB Port (GL) Failed");
+		`else
+			$display ("Monitor: Read-out timeout fail, Test Mega-Project WB Port (RTL) Failed");
+		`endif
+		$display("%c[0m",27);
+		$finish;
+	end
+
+	initial begin
 	   wait(checkbits == 16'hAB60);
 		$display("Monitor: MPRJ-Logic WB Started");
+		wait(checkbits == 16'hAB62);
+		$display("Monitor: Detected halt_out signal (this is good)");
 		wait(checkbits == 16'hAB61);
 		`ifdef GL
 	    	$display("Monitor: Mega-Project WB (GL) Passed");
@@ -167,6 +270,15 @@ module wb_port_tb;
 		    $display("Monitor: Mega-Project WB (RTL) Passed");
 		`endif
 	    $finish;
+	end
+
+	integer read_i;
+	initial begin
+		read_i = 0;
+		for(read_i = 0; read_i < 67; read_i = read_i + 1) begin
+			wait(checkbits == (16'hf000 | read_i));
+			$display("Monitor: Read-in has read %d", read_i);
+		end
 	end
 
 	initial begin
