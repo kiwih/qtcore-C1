@@ -92,7 +92,7 @@ end
 
 wire cnt_update_enable;
 wire [15:0] cnt_update = {cnt_h_data, cnt_l_data} + 1'b1;
-wire cnt_enable = cnt_update_enable & cnt_toggle;
+wire cnt_enable = cnt_update_enable & cnt_toggle & processor_enable;
 
 shift_register #(.WIDTH(WIDTH)) cnt_l_reg (
     .clk(clk),

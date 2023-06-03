@@ -226,3 +226,15 @@ assign cnt_update_enable = status_ctrl_data[1];
 ```
 
 This line of code will make `cnt_update_enable` mirror the value of the second bit of `status_ctrl_data`.
+
+## USER
+Can you make cnt_enable also require processor_enable to be set true?
+
+## ASSISTANT
+Sure, you can add another condition to the `cnt_enable` assignment. If `processor_enable` is a signal that needs to be high for `cnt_enable` to be asserted, you can modify the line as follows:
+
+```verilog
+wire cnt_enable = cnt_update_enable & cnt_toggle & processor_enable;
+```
+
+With this modification, `cnt_enable` will be high only if `cnt_update_enable`, `cnt_toggle`, and `processor_enable` are all high.

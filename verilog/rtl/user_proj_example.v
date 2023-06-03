@@ -145,7 +145,7 @@ module user_proj_example #(
             if(scan_done_strobe) begin
                 scan_go <= 0;
                 scan_wbs <= scan_io;
-                //$display("scan_io unloading, = %b", scan_io);
+                $display("scan_io unloading, = %b", scan_io);
             end
             if(valid) begin
                 wbs_ack_o <= 1;
@@ -194,7 +194,7 @@ module user_proj_example #(
                 scan_first_cycle == 0 && 
                 scan_done_strobe==0) begin
                 
-                $display("scan_io loading, = %h", scan_wbs);
+                //$display("scan_io loading, = %h", scan_wbs);
                 scan_io <= scan_wbs;
                 scan_cnt <= 5'd31;
                 scan_first_cycle <= 1;
@@ -218,6 +218,8 @@ module user_proj_example #(
         end
     end
 
+    wire irq_out;
+
     accumulator_microcontroller #(
         .MEM_SIZE(256)
     ) qtcore_C1 (
@@ -230,8 +232,10 @@ module user_proj_example #(
         .halt(halt_out),
         .IO_in(io_in[15:8]),    
         .IO_out(io_out[7:0]),   
-        .INT_out(irq[0])      
+        .INT_out(irq_out)      
     );
+
+    assign irq[0] = irq_out & proc_go;
     
     assign wbs_dat_o = (wbs_adr_i[7:0] == 8'h00) ? {scan_wbs} : {29'h0, halt_out, proc_go, scan_enable};
 
