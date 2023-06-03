@@ -3269,16 +3269,16 @@ wbs_we_i I
 1 la_data_in[38] *646:la_data_in[38] 33.0982 
 *END
 
-*D_NET *204 0.00326944
+*D_NET *204 0.00328202
 *CONN
 *P la_data_in[39] I
 *I *646:la_data_in[39] I *D user_proj_example
 *CAP
-1 la_data_in[39] 0.00111652
-2 *646:la_data_in[39] 0.00111652
+1 la_data_in[39] 0.00112326
+2 *646:la_data_in[39] 0.00112326
 3 *646:la_data_in[39] la_data_out[38] 1.90478e-05
-4 *646:la_data_in[39] la_data_out[39] 0.000241789
-5 *646:la_data_in[39] *646:la_oenb[38] 0.000633619
+4 *646:la_data_in[39] la_data_out[39] 0.000241447
+5 *646:la_data_in[39] *646:la_oenb[38] 0.000633075
 6 *646:la_data_in[39] *646:la_oenb[39] 0.000141941
 *RES
 1 la_data_in[39] *646:la_data_in[39] 33.6339 
@@ -3307,56 +3307,56 @@ wbs_we_i I
 3 *205:8 *646:la_data_in[3] 15.7946 
 *END
 
-*D_NET *206 0.00288898
+*D_NET *206 0.00289973
 *CONN
 *P la_data_in[40] I
 *I *646:la_data_in[40] I *D user_proj_example
 *CAP
-1 la_data_in[40] 0.000948732
-2 *646:la_data_in[40] 0.000948732
+1 la_data_in[40] 0.000954349
+2 *646:la_data_in[40] 0.000954349
 3 *646:la_data_in[40] la_data_out[39] 9.15842e-06
-4 *646:la_data_in[40] la_data_out[40] 0.000464949
-5 *646:la_data_in[40] *646:la_oenb[39] 0.000511416
+4 *646:la_data_in[40] la_data_out[40] 0.000464639
+5 *646:la_data_in[40] *646:la_oenb[39] 0.00051125
 6 *646:la_data_in[40] *646:la_oenb[40] 5.98922e-06
 *RES
 1 la_data_in[40] *646:la_data_in[40] 31.0446 
 *END
 
-*D_NET *207 0.00270488
+*D_NET *207 0.00271696
 *CONN
 *P la_data_in[41] I
 *I *646:la_data_in[41] I *D user_proj_example
 *CAP
-1 la_data_in[41] 0.000949566
-2 *646:la_data_in[41] 0.000949566
+1 la_data_in[41] 0.000955837
+2 *646:la_data_in[41] 0.000955837
 3 *646:la_data_in[41] la_data_out[40] 3.25207e-06
-4 *646:la_data_in[41] la_data_out[41] 0.000381013
+4 *646:la_data_in[41] la_data_out[41] 0.000380547
 5 *646:la_data_in[41] *646:la_oenb[40] 0.000421481
 *RES
 1 la_data_in[41] *646:la_data_in[41] 30.2232 
 *END
 
-*D_NET *208 0.00239704
+*D_NET *208 0.00240872
 *CONN
 *P la_data_in[42] I
 *I *646:la_data_in[42] I *D user_proj_example
 *CAP
-1 la_data_in[42] 0.000927677
-2 *646:la_data_in[42] 0.000927677
-3 *646:la_data_in[42] la_data_out[42] 0.00024761
+1 la_data_in[42] 0.000933673
+2 *646:la_data_in[42] 0.000933673
+3 *646:la_data_in[42] la_data_out[42] 0.000247299
 4 *646:la_data_in[42] *646:la_oenb[41] 0.000294078
 *RES
 1 la_data_in[42] *646:la_data_in[42] 28.9911 
 *END
 
-*D_NET *209 0.00221915
+*D_NET *209 0.00222554
 *CONN
 *P la_data_in[43] I
 *I *646:la_data_in[43] I *D user_proj_example
 *CAP
-1 la_data_in[43] 0.000925664
-2 *646:la_data_in[43] 0.000925664
-3 *646:la_data_in[43] la_data_out[43] 0.000163675
+1 la_data_in[43] 0.000928944
+2 *646:la_data_in[43] 0.000928944
+3 *646:la_data_in[43] la_data_out[43] 0.000163508
 4 *646:la_data_in[43] *646:la_oenb[42] 0.000204143
 *RES
 1 la_data_in[43] *646:la_data_in[43] 28.1696 
@@ -3386,13 +3386,13 @@ wbs_we_i I
 1 la_data_in[45] *646:la_data_in[45] 26.1161 
 *END
 
-*D_NET *212 0.0015562
+*D_NET *212 0.00156048
 *CONN
 *P la_data_in[46] I
 *I *646:la_data_in[46] I *D user_proj_example
 *CAP
-1 la_data_in[46] 0.000778102
-2 *646:la_data_in[46] 0.000778102
+1 la_data_in[46] 0.000780239
+2 *646:la_data_in[46] 0.000780239
 3 *646:la_data_in[46] la_data_out[46] 0
 *RES
 1 la_data_in[46] *646:la_data_in[46] 16.0089 
@@ -5456,14 +5456,14 @@ wbs_we_i I
 2 *315:13 la_data_out[23] 27.9643 
 *END
 
-*D_NET *316 0.00556176
+*D_NET *316 0.00556597
 *CONN
 *P la_data_out[24] O
 *I *646:la_data_out[24] O *D user_proj_example
 *CAP
 1 la_data_out[24] 0.000379719
-2 *646:la_data_out[24] 0.00107333
-3 *316:13 0.00145305
+2 *646:la_data_out[24] 0.00107544
+3 *316:13 0.00145516
 4 la_data_out[24] *443:17 0.00127905
 5 la_data_out[24] *444:15 0.000327827
 6 *316:13 la_data_out[25] 0
@@ -5671,14 +5671,14 @@ wbs_we_i I
 1 *646:la_data_out[34] la_data_out[34] 37.2054 
 *END
 
-*D_NET *328 0.00398461
+*D_NET *328 0.00398854
 *CONN
 *P la_data_out[35] O
 *I *646:la_data_out[35] O *D user_proj_example
 *CAP
-1 la_data_out[35] 0.00105438
-2 *646:la_data_out[35] 0.00105438
-3 la_data_out[35] la_data_out[36] 1.32165e-05
+1 la_data_out[35] 0.00105664
+2 *646:la_data_out[35] 0.00105664
+3 la_data_out[35] la_data_out[36] 1.26424e-05
 4 la_data_out[35] *646:la_oenb[34] 0.000402747
 5 la_data_out[34] la_data_out[35] 5.98922e-06
 6 *646:la_data_in[35] la_data_out[35] 0.000986562
@@ -5687,16 +5687,16 @@ wbs_we_i I
 1 *646:la_data_out[35] la_data_out[35] 36.2232 
 *END
 
-*D_NET *329 0.003513
+*D_NET *329 0.00351379
 *CONN
 *P la_data_out[36] O
 *I *646:la_data_out[36] O *D user_proj_example
 *CAP
-1 la_data_out[36] 0.00118469
-2 *646:la_data_out[36] 0.00118469
+1 la_data_out[36] 0.00118537
+2 *646:la_data_out[36] 0.00118537
 3 la_data_out[36] *646:la_oenb[35] 0
 4 la_data_out[36] *646:la_oenb[36] 0.000832224
-5 la_data_out[35] la_data_out[36] 1.32165e-05
+5 la_data_out[35] la_data_out[36] 1.26424e-05
 6 *646:la_data_in[36] la_data_out[36] 0.000298175
 *RES
 1 *646:la_data_out[36] la_data_out[36] 35.7054 
@@ -5731,16 +5731,16 @@ wbs_we_i I
 1 *646:la_data_out[38] la_data_out[38] 34.5625 
 *END
 
-*D_NET *332 0.00287647
+*D_NET *332 0.00291007
 *CONN
 *P la_data_out[39] O
 *I *646:la_data_out[39] O *D user_proj_example
 *CAP
-1 la_data_out[39] 0.000986932
-2 *646:la_data_out[39] 0.000986932
-3 la_data_out[39] *646:la_oenb[38] 7.6739e-05
+1 la_data_out[39] 0.00100395
+2 *646:la_data_out[39] 0.00100395
+3 la_data_out[39] *646:la_oenb[38] 7.66493e-05
 4 la_data_out[39] *646:la_oenb[39] 0.000574921
-5 *646:la_data_in[39] la_data_out[39] 0.000241789
+5 *646:la_data_in[39] la_data_out[39] 0.000241447
 6 *646:la_data_in[40] la_data_out[39] 9.15842e-06
 *RES
 1 *646:la_data_out[39] la_data_out[39] 32.1161 
@@ -5769,57 +5769,57 @@ wbs_we_i I
 3 *333:12 la_data_out[3] 6.26786 
 *END
 
-*D_NET *334 0.00288616
+*D_NET *334 0.00292419
 *CONN
 *P la_data_out[40] O
 *I *646:la_data_out[40] O *D user_proj_example
 *CAP
-1 la_data_out[40] 0.00097201
-2 *646:la_data_out[40] 0.00097201
-3 la_data_out[40] *646:la_oenb[39] 5.98922e-06
+1 la_data_out[40] 0.00099124
+2 *646:la_data_out[40] 0.00099124
+3 la_data_out[40] *646:la_oenb[39] 5.87328e-06
 4 la_data_out[40] *646:la_oenb[40] 0.000467949
-5 *646:la_data_in[40] la_data_out[40] 0.000464949
+5 *646:la_data_in[40] la_data_out[40] 0.000464639
 6 *646:la_data_in[41] la_data_out[40] 3.25207e-06
 *RES
 1 *646:la_data_out[40] la_data_out[40] 31.2946 
 *END
 
-*D_NET *335 0.00259119
+*D_NET *335 0.00262879
 *CONN
 *P la_data_out[41] O
 *I *646:la_data_out[41] O *D user_proj_example
 *CAP
-1 la_data_out[41] 0.000936994
-2 *646:la_data_out[41] 0.000936994
+1 la_data_out[41] 0.000956025
+2 *646:la_data_out[41] 0.000956025
 3 la_data_out[41] *646:la_oenb[40] 1.6473e-06
 4 la_data_out[41] *646:la_oenb[41] 0.000334546
-5 *646:la_data_in[41] la_data_out[41] 0.000381013
+5 *646:la_data_in[41] la_data_out[41] 0.000380547
 *RES
 1 *646:la_data_out[41] la_data_out[41] 29.8125 
 *END
 
-*D_NET *336 0.00234426
+*D_NET *336 0.0023822
 *CONN
 *P la_data_out[42] O
 *I *646:la_data_out[42] O *D user_proj_example
 *CAP
-1 la_data_out[42] 0.000923021
-2 *646:la_data_out[42] 0.000923021
+1 la_data_out[42] 0.000942145
+2 *646:la_data_out[42] 0.000942145
 3 la_data_out[42] *646:la_oenb[42] 0.00025061
-4 *646:la_data_in[42] la_data_out[42] 0.00024761
+4 *646:la_data_in[42] la_data_out[42] 0.000247299
 *RES
 1 *646:la_data_out[42] la_data_out[42] 28.5804 
 *END
 
-*D_NET *337 0.00210803
+*D_NET *337 0.00212588
 *CONN
 *P la_data_out[43] O
 *I *646:la_data_out[43] O *D user_proj_example
 *CAP
-1 la_data_out[43] 0.000907998
-2 *646:la_data_out[43] 0.000907998
+1 la_data_out[43] 0.000917009
+2 *646:la_data_out[43] 0.000917009
 3 la_data_out[43] *646:la_oenb[43] 0.000128357
-4 *646:la_data_in[43] la_data_out[43] 0.000163675
+4 *646:la_data_in[43] la_data_out[43] 0.000163508
 *RES
 1 *646:la_data_out[43] la_data_out[43] 27.7589 
 *END
@@ -5861,13 +5861,13 @@ wbs_we_i I
 1 *646:la_data_out[46] la_data_out[46] 15.4732 
 *END
 
-*D_NET *341 0.00147705
+*D_NET *341 0.00151753
 *CONN
 *P la_data_out[47] O
 *I *646:la_data_out[47] O *D user_proj_example
 *CAP
-1 la_data_out[47] 0.000738523
-2 *646:la_data_out[47] 0.000738523
+1 la_data_out[47] 0.000758767
+2 *646:la_data_out[47] 0.000758767
 *RES
 1 *646:la_data_out[47] la_data_out[47] 23.6518 
 *END
@@ -8027,15 +8027,15 @@ wbs_we_i I
 1 la_oenb[29] *646:la_oenb[29] 42.5089 
 *END
 
-*D_NET *450 0.0108769
+*D_NET *450 0.010881
 *CONN
 *P la_oenb[2] I
 *I *646:la_oenb[2] I *D user_proj_example
 *CAP
 1 la_oenb[2] 0.000664484
-2 *646:la_oenb[2] 0.00128222
-3 *450:10 0.00194671
-4 *646:la_oenb[2] *646:la_oenb[3] 5.98286e-06
+2 *646:la_oenb[2] 0.00128434
+3 *450:10 0.00194883
+4 *646:la_oenb[2] *646:la_oenb[3] 5.87328e-06
 5 *646:la_oenb[2] *472:10 0.000126446
 6 la_data_out[0] *450:10 9.90431e-05
 7 la_data_out[4] *450:10 0.000527126
@@ -8167,47 +8167,47 @@ wbs_we_i I
 1 la_oenb[37] *646:la_oenb[37] 33.5089 
 *END
 
-*D_NET *459 0.00322019
+*D_NET *459 0.00323477
 *CONN
 *P la_oenb[38] I
 *I *646:la_oenb[38] I *D user_proj_example
 *CAP
-1 la_oenb[38] 0.00103886
-2 *646:la_oenb[38] 0.00103886
+1 la_oenb[38] 0.00104647
+2 *646:la_oenb[38] 0.00104647
 3 la_data_out[38] *646:la_oenb[38] 0.000418885
-4 la_data_out[39] *646:la_oenb[38] 7.6739e-05
+4 la_data_out[39] *646:la_oenb[38] 7.66493e-05
 5 *646:la_data_in[38] *646:la_oenb[38] 1.32259e-05
-6 *646:la_data_in[39] *646:la_oenb[38] 0.000633619
+6 *646:la_data_in[39] *646:la_oenb[38] 0.000633075
 *RES
 1 la_oenb[38] *646:la_oenb[38] 32.9375 
 *END
 
-*D_NET *460 0.00317684
+*D_NET *460 0.00318314
 *CONN
 *P la_oenb[39] I
 *I *646:la_oenb[39] I *D user_proj_example
 *CAP
-1 la_oenb[39] 0.000971287
-2 *646:la_oenb[39] 0.000971287
+1 la_oenb[39] 0.00097458
+2 *646:la_oenb[39] 0.00097458
 3 la_data_out[39] *646:la_oenb[39] 0.000574921
-4 la_data_out[40] *646:la_oenb[39] 5.98922e-06
+4 la_data_out[40] *646:la_oenb[39] 5.87328e-06
 5 *646:la_data_in[39] *646:la_oenb[39] 0.000141941
-6 *646:la_data_in[40] *646:la_oenb[39] 0.000511416
+6 *646:la_data_in[40] *646:la_oenb[39] 0.00051125
 *RES
 1 la_oenb[39] *646:la_oenb[39] 32.5268 
 *END
 
-*D_NET *461 0.00870312
+*D_NET *461 0.0087036
 *CONN
 *P la_oenb[3] I
 *I *646:la_oenb[3] I *D user_proj_example
 *CAP
 1 la_oenb[3] 0.000810176
-2 *646:la_oenb[3] 0.00130732
-3 *461:12 0.00211749
+2 *646:la_oenb[3] 0.00130761
+3 *461:12 0.00211779
 4 la_data_out[2] *461:12 0.00036614
 5 *646:la_oenb[0] *461:12 0.000142856
-6 *646:la_oenb[2] *646:la_oenb[3] 5.98286e-06
+6 *646:la_oenb[2] *646:la_oenb[3] 5.87328e-06
 7 *194:12 *461:12 0.00132379
 8 *311:12 *461:12 0.00065966
 9 *333:12 *461:12 0.000363092
@@ -8246,26 +8246,26 @@ wbs_we_i I
 1 la_oenb[41] *646:la_oenb[41] 29.4018 
 *END
 
-*D_NET *464 0.00230002
+*D_NET *464 0.00230032
 *CONN
 *P la_oenb[42] I
 *I *646:la_oenb[42] I *D user_proj_example
 *CAP
-1 la_oenb[42] 0.000922632
-2 *646:la_oenb[42] 0.000922632
+1 la_oenb[42] 0.000922783
+2 *646:la_oenb[42] 0.000922783
 3 la_data_out[42] *646:la_oenb[42] 0.00025061
 4 *646:la_data_in[43] *646:la_oenb[42] 0.000204143
 *RES
 1 la_oenb[42] *646:la_oenb[42] 28.5804 
 *END
 
-*D_NET *465 0.00202716
+*D_NET *465 0.00202746
 *CONN
 *P la_oenb[43] I
 *I *646:la_oenb[43] I *D user_proj_example
 *CAP
-1 la_oenb[43] 0.000911031
-2 *646:la_oenb[43] 0.000911031
+1 la_oenb[43] 0.000911181
+2 *646:la_oenb[43] 0.000911181
 3 la_data_out[43] *646:la_oenb[43] 0.000128357
 4 *646:la_data_in[44] *646:la_oenb[43] 7.6739e-05
 *RES
@@ -9608,14 +9608,14 @@ wbs_we_i I
 3 *546:12 *646:wbs_adr_i[12] 43.4018 
 *END
 
-*D_NET *547 0.0171175
+*D_NET *547 0.0171217
 *CONN
 *P wbs_adr_i[13] I
 *I *646:wbs_adr_i[13] I *D user_proj_example
 *CAP
 1 wbs_adr_i[13] 0.000700503
-2 *646:wbs_adr_i[13] 0.000396975
-3 *547:21 0.00140865
+2 *646:wbs_adr_i[13] 0.00039908
+3 *547:21 0.00141076
 4 *547:17 0.00171218
 5 *646:wbs_adr_i[13] *646:wbs_dat_i[13] 0.000980817
 6 *547:17 wbs_dat_o[14] 2.04825e-05
@@ -11523,16 +11523,16 @@ wbs_we_i I
 3 *622:12 wbs_dat_o[22] 5.96429 
 *END
 
-*D_NET *623 0.0118246
+*D_NET *623 0.0118287
 *CONN
 *P wbs_dat_o[23] O
 *I *646:wbs_dat_o[23] O *D user_proj_example
 *CAP
 1 wbs_dat_o[23] 0.000112784
-2 *646:wbs_dat_o[23] 0.000893369
+2 *646:wbs_dat_o[23] 0.000895489
 3 *623:14 0.00106061
-4 *623:13 0.0018412
-5 *623:13 *624:13 5.98286e-06
+4 *623:13 0.00184332
+5 *623:13 *624:13 5.87328e-06
 6 *623:14 *624:16 0.000208825
 7 *646:wbs_adr_i[23] *623:13 5.98922e-06
 8 *646:wbs_adr_i[24] *623:13 0.000380846
@@ -11550,15 +11550,15 @@ wbs_we_i I
 3 *623:14 wbs_dat_o[23] 6.23214 
 *END
 
-*D_NET *624 0.0106267
+*D_NET *624 0.0106272
 *CONN
 *P wbs_dat_o[24] O
 *I *646:wbs_dat_o[24] O *D user_proj_example
 *CAP
 1 wbs_dat_o[24] 0.000134914
-2 *646:wbs_dat_o[24] 0.00109474
+2 *646:wbs_dat_o[24] 0.00109503
 3 *624:16 0.00151109
-4 *624:13 0.00247092
+4 *624:13 0.00247121
 5 *646:wbs_adr_i[24] *624:13 0.000464483
 6 *646:wbs_dat_i[24] *624:13 0.000464949
 7 *558:8 *624:16 0.00272
@@ -11567,7 +11567,7 @@ wbs_we_i I
 10 *593:8 *624:16 1.84708e-05
 11 *620:11 wbs_dat_o[24] 0.000120575
 12 *621:12 *624:16 0.000884026
-13 *623:13 *624:13 5.98286e-06
+13 *623:13 *624:13 5.87328e-06
 14 *623:14 *624:16 0.000208825
 *RES
 1 *646:wbs_dat_o[24] *624:13 37.2411 
@@ -11688,15 +11688,15 @@ wbs_we_i I
 2 *629:17 wbs_dat_o[29] 45.3929 
 *END
 
-*D_NET *630 0.0186905
+*D_NET *630 0.0186948
 *CONN
 *P wbs_dat_o[2] O
 *I *646:wbs_dat_o[2] O *D user_proj_example
 *CAP
 1 wbs_dat_o[2] 0.000545295
-2 *646:wbs_dat_o[2] 0.000776224
+2 *646:wbs_dat_o[2] 0.000778361
 3 *630:12 0.00274076
-4 *630:11 0.00297169
+4 *630:11 0.00297382
 5 *646:wbs_adr_i[3] *630:12 0.00301149
 6 *646:wbs_cyc_i wbs_dat_o[2] 0.000417943
 7 *646:wbs_cyc_i *630:12 0.000158757

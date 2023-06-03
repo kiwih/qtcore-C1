@@ -1626,7 +1626,7 @@ library (user_project_wrapper) {
     }
     pin("la_data_out[42]") {
       direction : output;
-      capacitance : 0.0023;
+      capacitance : 0.0024;
     }
     pin("la_data_out[41]") {
       direction : output;

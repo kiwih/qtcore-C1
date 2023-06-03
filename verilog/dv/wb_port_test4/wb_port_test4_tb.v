@@ -139,6 +139,7 @@ module wb_port_tb;
 		end
 	`endif 
 
+	`ifndef GL
 	initial begin
         wait(uut.chip_core.mprj.mprj.proc_go);
         $display("proc_go is high");
@@ -224,7 +225,7 @@ module wb_port_tb;
             uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[14].mem_cell.internal_data,
             uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[15].mem_cell.internal_data);
     end
-
+	`endif
 
 	initial begin
 		$dumpfile("wb_port_test4.vcd");
@@ -281,12 +282,14 @@ module wb_port_tb;
 		$finish;
 	end
 
+	`ifndef GL
 	initial begin
 		wait(uut.chip_core.mprj.mprj.proc_go);
 		$display("Monitor: Waiting for correct I/O out...");
 		wait(mprj_io_0 == 8'h15);
 		$display("Monitor: I/O output is correct");
 	end
+	`endif
 
 	initial begin
 		wait(checkbits == 16'hAB9F);
