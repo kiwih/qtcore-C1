@@ -3,9 +3,15 @@
     "DESIGN_IS_CORE": 0,
     "VERILOG_FILES": [
         "dir::../../verilog/rtl/defines.v",
-        "dir::../../verilog/rtl/user_proj_example.v"
+        "dir::../../verilog/rtl/user_proj_example.v",
+        "dir::../../verilog/rtl/accumulator_microcontroller.v",
+        "dir::../../verilog/rtl/alu.v",
+        "dir::../../verilog/rtl/Control_Status_Registers.v",
+        "dir::../../verilog/rtl/control_unit.v",
+        "dir::../../verilog/rtl/memory_bank.v",
+        "dir::../../verilog/rtl/shift_register.v"
     ],
-    "CLOCK_PERIOD": 25,
+    "CLOCK_PERIOD": 250,
     "CLOCK_PORT": "wb_clk_i",
     "CLOCK_NET": "counter.clk",
     "FP_SIZING": "absolute",
