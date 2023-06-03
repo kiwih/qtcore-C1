@@ -25,6 +25,8 @@ The QTCore-C1 is a much more comprehensive design which was made for Efabless's 
 
 **The QTCore-C1 architecture defines a processor with the following components:**
 
+![Datapath](qtcore_c1_datapath.png?raw=true "QTCore-C1 Datapath")
+
 * Control Unit: 2-cycle FSM for driving the processor (3 bit one-hot encoded state register)
 * Program Counter: 8-bit register containing the current address of the program
 * Segment Register: 4-bit register containing the current segment used for data memory instructions
