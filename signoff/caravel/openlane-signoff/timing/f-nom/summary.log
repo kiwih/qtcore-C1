@@ -4,13 +4,13 @@ SUMMARY
 
  corner|     min delay |  min reg2reg |    max delay |  max reg2reg |      max cap |     max slew
 -------------------------------------------------------------------------------------------------
-  f-nom|           met |          met |          met |          met |          met |          met
+  f-nom|           met |          met |   vio(-1.74) |   vio(-1.74) |          met |          met
 
 violating reg2reg min reports
 
 
 violating reg2reg max reports
-
+ /home/hammond/Documents/vivado_projs/qtcore-C1/signoff/caravel/openlane-signoff/timing/f-nom/mprj-max.rpt
 
 --------------------------------------------------------------------------------------------
 COMMAND
@@ -22,7 +22,7 @@ exec> report_check_types \
         -format end \
         -violators
 design: caravel
-time: Sat Jun  3 12:02:30 UTC 2023
+time: Sat Jun  3 16:44:16 UTC 2023
 
 --------------------------------------------------------------------------------------------
 REPORT

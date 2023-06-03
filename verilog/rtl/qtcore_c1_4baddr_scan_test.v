@@ -49,7 +49,7 @@ module qtcore_c1_4baddr_scan_test (
     reg rst_in;
 
 
-    accumulator_microcontroller dut(
+    /*accumulator_microcontroller uut.qtcore_C1_p0(
         .clk(clk_in),
         .rst(rst_in),
         .scan_enable(scan_enable_in),
@@ -60,6 +60,61 @@ module qtcore_c1_4baddr_scan_test (
         .INT_out(int_out),
         .IO_in(io_in),
         .IO_out(io_out)
+    );*/
+
+    wire [127:0] la_data_in;
+    wire [127:0] la_data_out;
+    wire  [127:0] la_oenb;
+
+    assign la_oenb[64] = 0;
+    assign la_data_in[64] = clk_in;
+    assign la_oenb[65] = 0;
+    assign la_data_in[65] = rst_in;
+    assign la_oenb[66] = 0;
+    assign la_data_in[66] = scan_in;
+    assign la_oenb[67] = 0;
+    assign la_data_in[67] = scan_enable_in;
+    assign la_oenb[68] = 0;
+    assign la_data_in[68] = proc_en_in;
+
+    // assign la_data_out = {23'b0,                //23 [127 - 103]
+    //                       p0_proc_en_final,     //1  [104]
+    //                       p0_halt_out,          //1  [103]
+    //                       p0_irq_out,           //1  [102]
+    //                       p0_scan_enable_final, //1  [101]
+    //                       p0_scan_enable,       //1  [100]
+    //                       p0_scan_in_final,     //1  [99]
+    //                       p0_scan_in,           //1  [98]
+    //                       p0_scan_out,          //1  [97]
+    //                       p0_proc_go,           //1  [96]
+    //                       p0_scan_done_strobe,  //1  [95]
+    //                       p0_scan_in_progress,  //1  [94]
+    //                       p0_scan_go,           //1  [93]
+    //                       p0_scan_cnt,          //5  [92 - 88]
+    //                       p0_sig_in_reg,        //8  [87 - 80]
+    //                       p0_io_out,            //8  [79 - 72]
+    //                       io_in_reg,            //8  [71 - 64]
+    //                       p0_scan_wbs,          //32 [63 - 32]
+    //                       p0_scan_io};          //32 [31 - 0]
+
+    assign scan_out = la_data_out[97];
+    assign io_out = la_data_out[79:72];
+    assign int_out = la_data_out[102];
+    assign halt_out = la_data_out[103];
+
+    user_proj_example uut (
+        .wb_clk_i(1'b0),
+        .wb_rst_i(1'b0),
+        .wbs_stb_i(1'b0),
+        .wbs_cyc_i(1'b0),
+        .wbs_we_i(1'b0),
+        .wbs_sel_i(4'b0),
+        .wbs_dat_i(32'b0),
+        .wbs_adr_i(32'b0),
+        .la_data_in(la_data_in),
+        .la_data_out(la_data_out),
+        .la_oenb(la_oenb),
+        .io_in({io_in, 8'b0})
     );
     
     
@@ -95,9 +150,15 @@ module qtcore_c1_4baddr_scan_test (
     task reset_processor;
     begin
         rst_in = 1;
-        #(CLK_PERIOD);
+        //clk_in = 1;
+        #(CLK_PERIOD / 2);
+        //clk_in = 0;
+        #(CLK_PERIOD / 2);
         rst_in = 0;
-        #(CLK_PERIOD);
+        //clk_in = 1;
+        #(CLK_PERIOD / 2);
+        //clk_in = 0;
+        #(CLK_PERIOD / 2);
     end
     endtask
 
@@ -182,103 +243,103 @@ module qtcore_c1_4baddr_scan_test (
 
             `ifndef SCAN_ONLY
                 $display("Design not gatelevel, running internal checks");
-                if(dut.ctrl_unit.state_register.internal_data !== 3'b001) begin
+                if(uut.qtcore_C1_p0.ctrl_unit.state_register.internal_data !== 3'b001) begin
                     $display("Wrong state reg value");
                     $finish;
                 end
-                if(dut.SEG_Register.internal_data !== 4'b0000) begin
+                if(uut.qtcore_C1_p0.SEG_Register.internal_data !== 4'b0000) begin
                     $display("Wrong SEG reg value");
                     $finish;
                 end
-                if(dut.PC_Register.internal_data !== 8'h10) begin
+                if(uut.qtcore_C1_p0.PC_Register.internal_data !== 8'h10) begin
                     $display("Wrong PC reg value");
                     $finish;
                 end
-                if(dut.IR_Register.internal_data !== 8'hfe) begin
+                if(uut.qtcore_C1_p0.IR_Register.internal_data !== 8'hfe) begin
                     $display("Wrong IR reg value");
                     $finish;
                 end
-                if(dut.ACC_Register.internal_data !== 8'h0c) begin
-                    $display("Wrong ACC reg value (value is %b)", dut.ACC_Register.internal_data);
+                if(uut.qtcore_C1_p0.ACC_Register.internal_data !== 8'h0c) begin
+                    $display("Wrong ACC reg value (value is %b)", uut.qtcore_C1_p0.ACC_Register.internal_data);
                     $finish;
                 end
-                if(dut.csr_inst.segexe_l_reg.internal_data !== 8'hff) begin
+                if(uut.qtcore_C1_p0.csr_inst.segexe_l_reg.internal_data !== 8'hff) begin
                     $display("Wrong SEGEXE_L reg value");
                     $finish;
                 end
-                if(dut.csr_inst.segexe_h_reg.internal_data !== 8'h00) begin
+                if(uut.qtcore_C1_p0.csr_inst.segexe_h_reg.internal_data !== 8'h00) begin
                     $display("Wrong SEGEXE_H reg value");
                     $finish;
                 end
-                if(dut.csr_inst.io_in_reg.internal_data !== 8'h00) begin
+                if(uut.qtcore_C1_p0.csr_inst.io_in_reg.internal_data !== 8'h00) begin
                     $display("Wrong IO_IN reg value");
                     $finish;
                 end
-                if(dut.csr_inst.io_out_reg.internal_data !== 8'hff) begin
+                if(uut.qtcore_C1_p0.csr_inst.io_out_reg.internal_data !== 8'hff) begin
                     $display("Wrong IO_OUT reg value");
                     $finish;
                 end
-                if(dut.csr_inst.cnt_l_reg.internal_data !== 8'h00) begin
+                if(uut.qtcore_C1_p0.csr_inst.cnt_l_reg.internal_data !== 8'h00) begin
                     $display("Wrong CNT_L reg value");
                     $finish;
                 end
-                if(dut.csr_inst.cnt_h_reg.internal_data !== 8'hff) begin
+                if(uut.qtcore_C1_p0.csr_inst.cnt_h_reg.internal_data !== 8'hff) begin
                     $display("Wrong CNT_H reg value");
                     $finish;
                 end
-                if(dut.csr_inst.status_ctrl_reg.internal_data !== 8'h00) begin
+                if(uut.qtcore_C1_p0.csr_inst.status_ctrl_reg.internal_data !== 8'h00) begin
                     $display("Wrong STATUS_CTRL reg value");
                     $finish;
                 end
-                if(dut.csr_inst.temp_reg.internal_data !== 8'hff) begin
+                if(uut.qtcore_C1_p0.csr_inst.sig_in_reg.internal_data !== 8'hff) begin
                     $display("Wrong TEMP reg value");
                     $finish;
                 end
                 // for(i = 0; i < FULL_MEM_SIZE; i = i + 1) begin //can't do this for some reason?
-                //     if(dut.mem_bank.memory[i].mem_cell.internal_data !== i) begin
+                //     if(uut.qtcore_C1_p0.mem_bank.memory[i].mem_cell.internal_data !== i) begin
                 //         $display("Wrong mem[%d] reg value", i);
                 //         $finish;
                 //     end
                 // end
-                if(dut.mem_bank.memory[0].mem_cell.internal_data !== 8'h00) begin
-                    $display("Wrong mem[0] reg value, got %b", dut.mem_bank.memory[0].mem_cell.internal_data);
+                if(uut.qtcore_C1_p0.mem_bank.memory[0].mem_cell.internal_data !== 8'h00) begin
+                    $display("Wrong mem[0] reg value, got %b", uut.qtcore_C1_p0.mem_bank.memory[0].mem_cell.internal_data);
                     $finish;
                 end
-                if(dut.mem_bank.memory[1].mem_cell.internal_data !== 8'h01) begin
+                if(uut.qtcore_C1_p0.mem_bank.memory[1].mem_cell.internal_data !== 8'h01) begin
                     $display("Wrong mem[1] reg value");
                     $finish;
                 end
-                if(dut.mem_bank.memory[2].mem_cell.internal_data !== 8'h02) begin
+                if(uut.qtcore_C1_p0.mem_bank.memory[2].mem_cell.internal_data !== 8'h02) begin
                     $display("Wrong mem[2] reg value");
                     $finish;
                 end
                 //skip to 16
-                if(dut.mem_bank.memory[16].mem_cell.internal_data !== 8'h10) begin
+                if(uut.qtcore_C1_p0.mem_bank.memory[16].mem_cell.internal_data !== 8'h10) begin
                     $display("Wrong mem[16] reg value");
                     $finish;
                 end
                 //skip to 80
-                if(dut.mem_bank.memory[80].mem_cell.internal_data !== 8'h50) begin
+                if(uut.qtcore_C1_p0.mem_bank.memory[80].mem_cell.internal_data !== 8'h50) begin
                     $display("Wrong mem[80] reg value");
                     $finish;
                 end
                 //skip to 123
-                if(dut.mem_bank.memory[123].mem_cell.internal_data !== 8'h7b) begin
+                if(uut.qtcore_C1_p0.mem_bank.memory[123].mem_cell.internal_data !== 8'h7b) begin
                     $display("Wrong mem[123] reg value");
                     $finish;
                 end
                 //skip to 199
-                if(dut.mem_bank.memory[199].mem_cell.internal_data !== 8'hc7) begin
+                if(uut.qtcore_C1_p0.mem_bank.memory[199].mem_cell.internal_data !== 8'hc7) begin
                     $display("Wrong mem[199] reg value");
                     $finish;
                 end
                 //skip to 254
-                if(dut.mem_bank.memory[254].mem_cell.internal_data !== 8'hfe) begin
+                if(uut.qtcore_C1_p0.mem_bank.memory[254].mem_cell.internal_data !== 8'hfe) begin
                     $display("Wrong mem[254] reg value");
                     $finish;
                 end
                 //skip to 255
-                if(dut.mem_bank.memory[255].mem_cell.internal_data !== 8'hff) begin
+                if(uut.qtcore_C1_p0.mem_bank.memory[255].mem_cell.internal_data !== 8'hff) begin
                     $display("Wrong mem[255] reg value");
                     $finish;
                 end
@@ -654,7 +715,7 @@ module qtcore_c1_4baddr_scan_test (
             xchg_scan_chain;
 
             if(scan_chain[SCAN_MEM0_INDEX + 240*8 +: 8] !== io_in) begin
-                $display("MEM[240] wrong value");
+                $display("MEM[240] wrong value (%b)", scan_chain[SCAN_MEM0_INDEX + 240*8 +: 8]);
                 $finish;
             end
             if(scan_chain[SCAN_MEM0_INDEX + 252*8 +: 8] !== 8'h0) begin

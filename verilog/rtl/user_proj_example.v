@@ -14,26 +14,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 `default_nettype none
-/*
- *-------------------------------------------------------------
- *
- * user_proj_example
- *
- * This is an example of a (trivially simple) user project,
- * showing how the user project can connect to the logic
- * analyzer, the wishbone bus, and the I/O pads.
- *
- * This project generates an integer count, which is output
- * on the user area GPIO pads (digital output only).  The
- * wishbone connection allows the project to be controlled
- * (start and stop) from the management SoC program.
- *
- * See the testbenches in directory "mprj_counter" for the
- * example programs that drive this user project.  The three
- * testbenches are "io_ports", "la_test1", and "la_test2".
- *
- *-------------------------------------------------------------
- */
 
 module user_proj_example #(
     parameter BITS = 32
@@ -85,6 +65,8 @@ module user_proj_example #(
     wire [3:0] wstrb;
     wire [31:0] la_write;
 
+    wire [7:0] p0_io_out;
+
     assign valid = wbs_cyc_i && wbs_stb_i;
 
     assign wstrb = wbs_sel_i & {4{wbs_we_i}};
@@ -95,57 +77,90 @@ module user_proj_example #(
 
     reg[7:0] io_in_reg_pipe;
     reg[7:0] io_in_reg;
-    always @(posedge wb_clk_i) begin
+    always @(posedge clk) begin
         io_in_reg_pipe <= io_in[15:8];
         io_in_reg <= io_in_reg_pipe;
     end
 
     // IO
-    assign io_out = count;
-    assign io_oeb = {(15){rst}};
+    assign io_out[7:0] = p0_io_out;
 
     // IRQ
     assign irq[2:1] = 2'b00;	// Unused
 
-    // LA
-    // assign la_data_out = {{(127-BITS){1'b0}}, count};
+    
+
+
+    wire p0_halt_out;
+    reg [31:0] p0_scan_io;
+    reg [31:0] p0_scan_wbs;
+
+    wire p0_irq_out;
+
+    wire [7:0] p0_sig_in;
+    wire [5:0] p0_sig_out;
+    reg [7:0] p0_sig_in_reg;
+    assign p0_sig_in = p0_sig_in_reg;
+
+    reg p0_scan_go;
+    reg p0_scan_enable;
+    reg [4:0] p0_scan_cnt;
+    reg p0_scan_in_progress;
+    reg p0_scan_done_strobe;
+
+    wire p0_scan_in = p0_scan_io[31];
+    wire p0_scan_out;
+
+    reg p0_proc_go;
+
+    wire p0_scan_in_final, p0_scan_enable_final, p0_proc_en_final;
+
+
     // // Assuming LA probes [63:32] are for controlling the count register  
     // assign la_write = ~la_oenb[63:32] & ~{BITS{valid}};
     // // Assuming LA probes [65:64] are for controlling the count clk & reset  
-    // assign clk = (~la_oenb[64]) ? la_data_in[64]: wb_clk_i;
-    // assign rst = (~la_oenb[65]) ? la_data_in[65]: wb_rst_i;
+    assign clk = (~la_oenb[64]) ? la_data_in[64]: wb_clk_i;
+    assign rst = (~la_oenb[65]) ? la_data_in[65]: wb_rst_i;
+    assign p0_scan_in_final = (~la_oenb[66]) ? la_data_in[66]: p0_scan_in;
+    assign p0_scan_enable_final = (~la_oenb[67]) ? la_data_in[67]: p0_scan_enable;
+    assign p0_proc_en_final = (~la_oenb[68]) ? la_data_in[68]: p0_proc_go;
 
-
-    wire halt_out;
-    reg [31:0] scan_io;
-    reg [31:0] scan_wbs;
-    reg scan_go;
-    reg scan_enable;
-    reg [4:0] scan_cnt;
-    reg scan_in_progress;
-    reg scan_done_strobe;
-
-    wire scan_in = scan_io[31];
-    wire scan_out;
-
-    reg proc_go;
-
-    assign clk = wb_clk_i;
+    // LA    
+    assign la_data_out = {23'b0,                //23
+                          p0_proc_en_final,     //1
+                          p0_halt_out,          //1
+                          p0_irq_out,           //1
+                          p0_scan_enable_final, //1 
+                          p0_scan_enable,       //1
+                          p0_scan_in_final,     //1 
+                          p0_scan_in,           //1
+                          p0_scan_out,          //1
+                          p0_proc_go,           //1
+                          p0_scan_done_strobe,  //1
+                          p0_scan_in_progress,  //1
+                          p0_scan_go,           //1
+                          p0_scan_cnt,          //5
+                          p0_sig_in_reg,        //8
+                          p0_io_out,            //8
+                          io_in_reg,            //8
+                          p0_scan_wbs,          //32
+                          p0_scan_io};          //32
 
     //initial $display("Hello world!");
 
     always@(posedge clk) begin
         wbs_ack_o <= 0;
 
-        if(wb_rst_i) begin
-            scan_wbs <= 0;
-            proc_go <= 0;
-            scan_go <= 0;
+        if(rst) begin
+            p0_scan_wbs <= 0;
+            p0_proc_go <= 0;
+            p0_scan_go <= 0;
+            p0_sig_in_reg <= 0;
         end else begin
-            if(scan_done_strobe) begin
-                scan_go <= 0;
-                scan_wbs <= scan_io;
-                $display("scan_io unloading, = %b", scan_io);
+            if(p0_scan_done_strobe) begin
+                p0_scan_go <= 0;
+                p0_scan_wbs <= p0_scan_io;
+                $display("p0_scan_io unloading, = %b", p0_scan_io);
             end
             if(valid) begin
                 wbs_ack_o <= 1;
@@ -153,91 +168,100 @@ module user_proj_example #(
 
                     
                     if(wstrb[0])
-                        //$display("setting scan_wbs[7:0] to %h", wbs_dat_i[7:0]);
-                        scan_wbs[7:0] <= wbs_dat_i[7:0];
+                        //$display("setting p0_scan_wbs[7:0] to %h", wbs_dat_i[7:0]);
+                        p0_scan_wbs[7:0] <= wbs_dat_i[7:0];
                     if(wstrb[1])
-                        //$display("setting scan_wbs[15:8] to %h", wbs_dat_i[15:8]);
-                        scan_wbs[15:8] <= wbs_dat_i[15:8];
+                        //$display("setting p0_scan_wbs[15:8] to %h", wbs_dat_i[15:8]);
+                        p0_scan_wbs[15:8] <= wbs_dat_i[15:8];
                     if(wstrb[2])
-                        //$display("setting scan_wbs[23:16] to %h", wbs_dat_i[23:16]);
-                        scan_wbs[23:16] <= wbs_dat_i[23:16];
+                        //$display("setting p0_scan_wbs[23:16] to %h", wbs_dat_i[23:16]);
+                        p0_scan_wbs[23:16] <= wbs_dat_i[23:16];
                     if(wstrb[3])
-                        //$display("setting scan_wbs[31:24] to %h", wbs_dat_i[31:24]);
-                        scan_wbs[31:24] <= wbs_dat_i[31:24];
+                        //$display("setting p0_scan_wbs[31:24] to %h", wbs_dat_i[31:24]);
+                        p0_scan_wbs[31:24] <= wbs_dat_i[31:24];
 
                 end else if(wbs_adr_i[7:0] == 8'h04) begin
                     if(wstrb[0]) begin
                         if(wbs_dat_i[0] == 1'b1)
-                            scan_go <= 1;
+                            p0_scan_go <= 1;
                         
-                        proc_go <= wbs_dat_i[1];
+                        p0_proc_go <= wbs_dat_i[1];
+                    end
+                end else if(wbs_adr_i[7:0] == 8'h08) begin
+                    if(wstrb[0]) begin
+                        p0_sig_in_reg <= wbs_dat_i[7:0];
                     end
                 end
             end
         end
     end
 
-    reg scan_first_cycle = 0;
+    reg p0_scan_first_cycle = 0;
 
     always@(posedge clk) begin
-        scan_done_strobe <= 0;
-        scan_enable <= 0;
-        if(wb_rst_i) begin
-            scan_in_progress <= 0;
-            scan_first_cycle <= 0;
-            scan_cnt <= 0;
-            scan_io <= 0;
+        p0_scan_done_strobe <= 0;
+        p0_scan_enable <= 0;
+        if(rst) begin
+            p0_scan_in_progress <= 0;
+            p0_scan_first_cycle <= 0;
+            p0_scan_cnt <= 0;
+            p0_scan_io <= 0;
         end else begin
-            if(scan_go==1 && 
-                scan_in_progress == 0 &&
-                proc_go == 0 &&
-                scan_first_cycle == 0 && 
-                scan_done_strobe==0) begin
+            if(p0_scan_go==1 && 
+                p0_scan_in_progress == 0 &&
+                p0_proc_go == 0 &&
+                p0_scan_first_cycle == 0 && 
+                p0_scan_done_strobe==0) begin
                 
-                //$display("scan_io loading, = %h", scan_wbs);
-                scan_io <= scan_wbs;
-                scan_cnt <= 5'd31;
-                scan_first_cycle <= 1;
-            end else if(scan_first_cycle == 1) begin
-                scan_in_progress <= 1;
-                scan_first_cycle <= 0;
-                scan_enable <= 1;
-            end else if(scan_in_progress == 1) begin
-                scan_io <= (scan_io << 1) | scan_out;
-                if(scan_cnt != 0) begin
-                    scan_enable <= 1;
-                    scan_cnt <= scan_cnt - 1;
+                //$display("p0_scan_io loading, = %h", p0_scan_wbs);
+                p0_scan_io <= p0_scan_wbs;
+                p0_scan_cnt <= 5'd31;
+                p0_scan_first_cycle <= 1;
+            end else if(p0_scan_first_cycle == 1) begin
+                p0_scan_in_progress <= 1;
+                p0_scan_first_cycle <= 0;
+                p0_scan_enable <= 1;
+            end else if(p0_scan_in_progress == 1) begin
+                p0_scan_io <= (p0_scan_io << 1) | p0_scan_out;
+                if(p0_scan_cnt != 0) begin
+                    p0_scan_enable <= 1;
+                    p0_scan_cnt <= p0_scan_cnt - 1;
                 end else begin
-                    scan_in_progress <= 0;
-                    scan_done_strobe <= 1;
+                    p0_scan_in_progress <= 0;
+                    p0_scan_done_strobe <= 1;
                 end
-            end else if(scan_done_strobe == 1) begin
-                //scan_enable <= 1;
+            end else if(p0_scan_done_strobe == 1) begin
+                //p0_scan_enable <= 1;
                 ; //nothing to do here
             end
         end
     end
 
-    wire irq_out;
+    
 
     accumulator_microcontroller #(
         .MEM_SIZE(256)
-    ) qtcore_C1 (
-        .clk(wb_clk_i),
-        .rst(wb_rst_i),
-        .scan_enable(scan_enable),
-        .scan_in(scan_in),
-        .scan_out(scan_out),
-        .proc_en(proc_go),
-        .halt(halt_out),
-        .IO_in(io_in[15:8]),    
-        .IO_out(io_out[7:0]),   
-        .INT_out(irq_out)      
+    ) qtcore_C1_p0 (
+        .clk(clk),
+        .rst(rst),
+        .scan_enable(p0_scan_enable_final),
+        .scan_in(p0_scan_in_final),
+        .scan_out(p0_scan_out),
+        .proc_en(p0_proc_en_final),
+        .halt(p0_halt_out),
+        .IO_in(io_in_reg),    
+        .IO_out(p0_io_out),   
+        .INT_out(p0_irq_out),
+        .SIG_IN(p0_sig_in),
+        .SIG_OUT(p0_sig_out)     
     );
 
-    assign irq[0] = irq_out & proc_go;
+    assign irq[0] = p0_irq_out & p0_proc_go;
     
-    assign wbs_dat_o = (wbs_adr_i[7:0] == 8'h00) ? {scan_wbs} : {29'h0, halt_out, proc_go, scan_enable};
+    assign wbs_dat_o = (wbs_adr_i[7:0] == 8'h00) ? {p0_scan_wbs} : 
+                       (wbs_adr_i[7:0] == 8'h04) ? {29'h0, p0_halt_out, p0_proc_go, p0_scan_enable} :
+                       (wbs_adr_i[7:0] == 8'h08) ? {24'h0, p0_sig_in_reg} :
+                       {26'h0, p0_sig_out};
 
 endmodule
 

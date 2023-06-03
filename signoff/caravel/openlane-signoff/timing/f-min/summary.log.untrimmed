@@ -8,7 +8,7 @@ exec> report_check_types \
         -format end \
         -violators
 design: caravel
-time: Sat Jun  3 12:02:29 UTC 2023
+time: Sat Jun  3 16:44:15 UTC 2023
 
 --------------------------------------------------------------------------------------------
 REPORT

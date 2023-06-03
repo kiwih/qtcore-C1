@@ -4,7 +4,7 @@ SUMMARY
 
  corner|     min delay |  min reg2reg |    max delay |  max reg2reg |      max cap |     max slew
 -------------------------------------------------------------------------------------------------
-  s-nom|           met |          met |   vio(-6.52) |   vio(-6.52) |          met |          met
+  s-nom|           met |          met |  vio(-75.90) |  vio(-75.90) |   vio(-0.03) |   vio(-0.21)
 
 violating reg2reg min reports
 
@@ -22,9 +22,23 @@ exec> report_check_types \
         -format end \
         -violators
 design: caravel
-time: Sat Jun  3 12:03:14 UTC 2023
+time: Sat Jun  3 16:45:00 UTC 2023
 
 --------------------------------------------------------------------------------------------
 REPORT
 --------------------------------------------------------------------------------------------
+
+max slew
+
+Pin                                    Limit    Slew   Slack
+------------------------------------------------------------
+chip_core/mprj/mprj/_09417_/X           1.49    1.71   -0.21 (VIOLATED)
+chip_core/mprj/mprj/clkbuf_0_qtcore_C1_p0.ACC_Register.clk/A    1.50    1.71   -0.21 (VIOLATED)
+chip_core/mprj/mprj/ANTENNA_342/DIODE    1.50    1.71   -0.21 (VIOLATED)
+
+max capacitance
+
+Pin                                    Limit     Cap   Slack
+------------------------------------------------------------
+chip_core/mprj/mprj/_09417_/X           0.19    0.21   -0.03 (VIOLATED)
 

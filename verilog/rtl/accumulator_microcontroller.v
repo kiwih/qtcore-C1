@@ -21,7 +21,10 @@ module accumulator_microcontroller #(
 
     input wire [7:0] IO_in,     // Updated to 8-bit IO_in bus
     output wire [7:0] IO_out,   // Updated to 8-bit IO_out bus
-    output wire INT_out         // New interrupt output
+    output wire INT_out,        // New interrupt output
+
+    input wire [7:0] SIG_IN,    // New signal input SIG_IN
+    output wire [5:0] SIG_OUT   // New signal output SIG_OUT
 );
 
     
@@ -231,6 +234,8 @@ Control_Status_Registers #(
     .data_in(ACC),                     // Connect data_in to ACC
     .wr_enable(CSR_write_enable),      // Connect wr_enable to CSR_write_enable
     .IO_IN(IO_in),                     // Connect IO_in to IO_IN
+    .SIG_IN(SIG_IN),                   // Connect SIG_IN to SIG_IN
+    .processor_enable(proc_en),        // Connect processor_enable to top-level proc_en
     .scan_enable(scan_enable),
     .scan_in(scan_in_CSR),             // Renamed scan_in signal as scan_in_CSR
     .scan_out(scan_out_CSR),           // Renamed scan_out signal as scan_out_CSR
@@ -238,9 +243,10 @@ Control_Status_Registers #(
     .SEGEXE_L_OUT(SEGEXE_L_OUT),       // Connect SEGEXE_L_OUT to new wire
     .SEGEXE_H_OUT(SEGEXE_H_OUT),       // Connect SEGEXE_H_OUT to new wire
     .IO_OUT(IO_out),                   // Connect IO_out to IO_OUT
-    .INT_OUT(INT_out),
-    .processor_enable(proc_en)         // Connect processor_enable to top-level proc_en
+    .SIG_OUT(SIG_OUT),                 // Connect SIG_OUT to SIG_OUT
+    .INT_OUT(INT_out)
 );
+
 
 
 assign scan_in_CU = scan_in;           // Input to Control Unit (CU)

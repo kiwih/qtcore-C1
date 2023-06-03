@@ -17,9 +17,11 @@ This processor is based on the ideas undertaken in the [Chip-Chat](https://arxiv
 
 The QTCore-C1 is a much more comprehensive design which was made for Efabless's first [AI generated Design Contest](https://efabless.com/ai-generated-design-contest). Targeted to Caravel, it has a lot more space available to it than with Tiny Tapeout. As such, it has a full 256 bytes of instruction and data memory, as well as 8-bit I/O ports, as an internal 16-bit timer, and even memory execution protection across 16-byte segments! Due to these expanded properties, it is a much more complex design with a lot more Verilog code as well as a much more comprehensive ISA, and the two processors, although sharing some similarities, are broadly incompatible.
 
-*What could this be used for?* Practically, you could imagine a little co-processor like this being used for predictable-time I/O state machines, similar to the RP2040's PIO. It helps that this design is quite small, and could be easily replicated many times on a single die. It also has 8-bit I/O, an interrupt output, and a timer, which is quite useful for many applications.
+*What could this be used for?* Practically, you could imagine a little co-processor like this being used for predictable-time I/O state machines, similar to the RP2040's PIO. It helps that this design is quite small, and could be easily replicated many times on a single die. It also has 8-bit I/O, an interrupt output, a timer, and signal I/O to the larger Caravel processor, making it potentially useful for many applications.
 
-*Why make this design instead of something like RISC-V?*: There are many implementations of open-source processors for ISAs like RISC-V and MIPS. The problem is, that means GPT-4 has seen these designs during training. For Efabless's generative AI contest (and the earlier Chip-Chat work), I didn't want to explore simply the capabilities of GPT-4 to emit data it has trained over - rather, I wanted to see how they performed when making something more novel. As such, I shephereded the models into making wholly new designs, with strange ISAs quite different to what is available in the open-source literature. 
+*Why make this design instead of something like RISC-V?*: There are many implementations of open-source processors for ISAs like RISC-V and MIPS. The problem is, that means GPT-4 has seen these designs during training. For Efabless's generative AI contest (and the earlier Chip-Chat work), I didn't want to explore simply the capabilities of GPT-4 to emit data it has trained over - rather, I wanted to see how they performed when making something more novel. As such, I shephereded the models into making wholly new designs, with strange ISAs quite different to what is available in the open-source literature.
+
+*A security experiment*: The memory execution protection scheme was added primarily to test to see if ChatGPT-4 would then 'knowingly' create a backdoor, which it politely did (see Conversation C18 in the QTCore-C1 logs). This is a very interesting result, as it shows that GPT-4 is capable of both 'understanding' the concept of security, and that it is also capable of creating a backdoor to circumvent it.
 
 **The QTCore-C1 architecture defines a processor with the following components:**
 
@@ -29,7 +31,7 @@ The QTCore-C1 is a much more comprehensive design which was made for Efabless's 
 * Instruction Register: 8-bit register containing the current instruction to execute
 * Accumulator: 8-bit register used for data storage, manipulation, and logic
 * Memory Bank: 256 8-bit registers which store instructions and data. 
-* Control and Status Registers: 8 8-bit registers which are used for special features including the timer, I/O, memory protection, and sending an interrupt to the larger Caravel processor.
+* Control and Status Registers: 8 8-bit registers which are used for special features including the timer, I/O, memory protection, and sending an interrupt and receiving and sending signals to the larger Caravel processor.
 
 In order to program and debug the processor, all registers are connected via one large scan chain which is interfaced with the internal wishbone bus.
 As such, you use the Caravel processor to read and write the status of the processor.
@@ -218,9 +220,9 @@ For **Data Manipulation Instructions**:
 
 6. **CNT_H (101)**: 8 bits - Higher 8 bits of a 16-bit counter register. This can be used to store the upper half of a count value, similar to the CNT_L register.
 
-7. **STATUS_CTRL (110)**: 8 bits - A control register to hold the status of different operations in the CPU. This can contain flags for conditions such as zero result, negative result, overflow, etc.
+7. **STATUS_CTRL (110)**: 8 bits - A control register to hold the status of different operations in the CPU. The bits are: `{SIG_OUT[7:2], CNT_EN[1], IRQ_OUT[0]}`. The SIG_OUT bits are used to send signals (6 bits) to the larger Caravel processor. The CNT_EN bit is used to enable the counter. The IRQ_OUT bit is used to send an interrupt to the larger Caravel processor.
 
-8. **TEMP (111)**: 8 bits - A temporary register for general use. This could be used by the programmer for temporary storage during calculations, data manipulation, etc.
+8. **SIG_IN (111)**: 8 bits - The 8-bits here can come from the larger Caravel processor. This can be used to send signals to the CPU, such as job start, job end, etc.
 
 ### Example programming using the assembler
 

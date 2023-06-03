@@ -1,4 +1,4 @@
-Found 2424 unannotated drivers.
+Found 2319 unannotated drivers.
  clock
  flash_io0
  flash_io1
@@ -1599,160 +1599,55 @@ Found 2424 unannotated drivers.
  chip_core/mgmt_buffers.mprj_logic_high_inst/insts\[9\]/LO
  chip_core/mgmt_buffers.powergood_check/mprj2_logic_high_hvl/LO
  chip_core/mgmt_buffers.powergood_check/mprj_logic_high_hvl/LO
- chip_core/mprj/mprj/user_proj_example_1231/HI
- chip_core/mprj/mprj/user_proj_example_1232/HI
- chip_core/mprj/mprj/user_proj_example_1233/HI
- chip_core/mprj/mprj/user_proj_example_1234/HI
- chip_core/mprj/mprj/user_proj_example_1235/HI
- chip_core/mprj/mprj/user_proj_example_1236/HI
- chip_core/mprj/mprj/user_proj_example_1237/HI
- chip_core/mprj/mprj/user_proj_example_1238/HI
- chip_core/mprj/mprj/user_proj_example_1239/HI
- chip_core/mprj/mprj/user_proj_example_1240/HI
- chip_core/mprj/mprj/user_proj_example_1241/HI
- chip_core/mprj/mprj/user_proj_example_1242/HI
- chip_core/mprj/mprj/user_proj_example_1243/HI
- chip_core/mprj/mprj/user_proj_example_1244/HI
- chip_core/mprj/mprj/user_proj_example_1245/HI
- chip_core/mprj/mprj/user_proj_example_1246/HI
- chip_core/mprj/mprj/user_proj_example_1247/HI
- chip_core/mprj/mprj/user_proj_example_1248/HI
- chip_core/mprj/mprj/user_proj_example_1249/HI
- chip_core/mprj/mprj/user_proj_example_1250/HI
- chip_core/mprj/mprj/user_proj_example_1251/HI
- chip_core/mprj/mprj/user_proj_example_1252/HI
- chip_core/mprj/mprj/user_proj_example_1253/HI
- chip_core/mprj/mprj/user_proj_example_1254/HI
- chip_core/mprj/mprj/user_proj_example_1255/HI
- chip_core/mprj/mprj/user_proj_example_1256/HI
- chip_core/mprj/mprj/user_proj_example_1257/HI
- chip_core/mprj/mprj/user_proj_example_1258/HI
- chip_core/mprj/mprj/user_proj_example_1259/HI
- chip_core/mprj/mprj/user_proj_example_1260/HI
- chip_core/mprj/mprj/user_proj_example_1261/HI
- chip_core/mprj/mprj/user_proj_example_1262/HI
- chip_core/mprj/mprj/user_proj_example_1263/HI
- chip_core/mprj/mprj/user_proj_example_1264/HI
- chip_core/mprj/mprj/user_proj_example_1265/HI
- chip_core/mprj/mprj/user_proj_example_1266/HI
- chip_core/mprj/mprj/user_proj_example_1267/HI
- chip_core/mprj/mprj/user_proj_example_1268/HI
- chip_core/mprj/mprj/user_proj_example_1269/HI
- chip_core/mprj/mprj/user_proj_example_1270/HI
- chip_core/mprj/mprj/user_proj_example_1271/HI
- chip_core/mprj/mprj/user_proj_example_1272/HI
- chip_core/mprj/mprj/user_proj_example_1273/HI
- chip_core/mprj/mprj/user_proj_example_1274/HI
- chip_core/mprj/mprj/user_proj_example_1275/HI
- chip_core/mprj/mprj/user_proj_example_1276/HI
- chip_core/mprj/mprj/user_proj_example_1277/HI
- chip_core/mprj/mprj/user_proj_example_1278/HI
- chip_core/mprj/mprj/user_proj_example_1279/HI
- chip_core/mprj/mprj/user_proj_example_1280/HI
- chip_core/mprj/mprj/user_proj_example_1281/HI
- chip_core/mprj/mprj/user_proj_example_1282/HI
- chip_core/mprj/mprj/user_proj_example_1283/HI
- chip_core/mprj/mprj/user_proj_example_1284/HI
- chip_core/mprj/mprj/user_proj_example_1285/HI
- chip_core/mprj/mprj/user_proj_example_1286/HI
- chip_core/mprj/mprj/user_proj_example_1287/HI
- chip_core/mprj/mprj/user_proj_example_1288/HI
- chip_core/mprj/mprj/user_proj_example_1289/HI
- chip_core/mprj/mprj/user_proj_example_1290/HI
- chip_core/mprj/mprj/user_proj_example_1291/HI
- chip_core/mprj/mprj/user_proj_example_1292/HI
- chip_core/mprj/mprj/user_proj_example_1293/HI
- chip_core/mprj/mprj/user_proj_example_1294/HI
- chip_core/mprj/mprj/user_proj_example_1295/HI
- chip_core/mprj/mprj/user_proj_example_1296/HI
- chip_core/mprj/mprj/user_proj_example_1297/HI
- chip_core/mprj/mprj/user_proj_example_1298/HI
- chip_core/mprj/mprj/user_proj_example_1299/HI
- chip_core/mprj/mprj/user_proj_example_1300/HI
- chip_core/mprj/mprj/user_proj_example_1301/HI
- chip_core/mprj/mprj/user_proj_example_1302/HI
- chip_core/mprj/mprj/user_proj_example_1303/HI
- chip_core/mprj/mprj/user_proj_example_1304/HI
- chip_core/mprj/mprj/user_proj_example_1305/HI
- chip_core/mprj/mprj/user_proj_example_1306/HI
- chip_core/mprj/mprj/user_proj_example_1307/HI
- chip_core/mprj/mprj/user_proj_example_1308/HI
- chip_core/mprj/mprj/user_proj_example_1309/HI
- chip_core/mprj/mprj/user_proj_example_1310/HI
- chip_core/mprj/mprj/user_proj_example_1311/HI
- chip_core/mprj/mprj/user_proj_example_1312/HI
- chip_core/mprj/mprj/user_proj_example_1313/HI
- chip_core/mprj/mprj/user_proj_example_1314/HI
- chip_core/mprj/mprj/user_proj_example_1315/HI
- chip_core/mprj/mprj/user_proj_example_1316/HI
- chip_core/mprj/mprj/user_proj_example_1317/HI
- chip_core/mprj/mprj/user_proj_example_1318/HI
- chip_core/mprj/mprj/user_proj_example_1319/HI
- chip_core/mprj/mprj/user_proj_example_1320/HI
- chip_core/mprj/mprj/user_proj_example_1321/HI
- chip_core/mprj/mprj/user_proj_example_1322/HI
- chip_core/mprj/mprj/user_proj_example_1323/HI
- chip_core/mprj/mprj/user_proj_example_1324/HI
- chip_core/mprj/mprj/user_proj_example_1325/HI
- chip_core/mprj/mprj/user_proj_example_1326/HI
- chip_core/mprj/mprj/user_proj_example_1327/HI
- chip_core/mprj/mprj/user_proj_example_1328/HI
- chip_core/mprj/mprj/user_proj_example_1329/HI
- chip_core/mprj/mprj/user_proj_example_1330/HI
- chip_core/mprj/mprj/user_proj_example_1331/HI
- chip_core/mprj/mprj/user_proj_example_1332/HI
- chip_core/mprj/mprj/user_proj_example_1333/HI
- chip_core/mprj/mprj/user_proj_example_1334/HI
- chip_core/mprj/mprj/user_proj_example_1335/HI
- chip_core/mprj/mprj/user_proj_example_1336/HI
- chip_core/mprj/mprj/user_proj_example_1337/HI
- chip_core/mprj/mprj/user_proj_example_1338/HI
- chip_core/mprj/mprj/user_proj_example_1339/HI
- chip_core/mprj/mprj/user_proj_example_1340/HI
- chip_core/mprj/mprj/user_proj_example_1341/HI
- chip_core/mprj/mprj/user_proj_example_1342/HI
- chip_core/mprj/mprj/user_proj_example_1343/HI
- chip_core/mprj/mprj/user_proj_example_1344/HI
- chip_core/mprj/mprj/user_proj_example_1345/HI
- chip_core/mprj/mprj/user_proj_example_1346/HI
- chip_core/mprj/mprj/user_proj_example_1347/HI
- chip_core/mprj/mprj/user_proj_example_1348/HI
- chip_core/mprj/mprj/user_proj_example_1349/HI
- chip_core/mprj/mprj/user_proj_example_1350/HI
- chip_core/mprj/mprj/user_proj_example_1351/HI
- chip_core/mprj/mprj/user_proj_example_1352/HI
- chip_core/mprj/mprj/user_proj_example_1353/HI
- chip_core/mprj/mprj/user_proj_example_1354/HI
- chip_core/mprj/mprj/user_proj_example_1355/HI
- chip_core/mprj/mprj/user_proj_example_1356/HI
- chip_core/mprj/mprj/user_proj_example_1357/HI
- chip_core/mprj/mprj/user_proj_example_1358/HI
- chip_core/mprj/mprj/user_proj_example_1359/HI
- chip_core/mprj/mprj/user_proj_example_1360/HI
- chip_core/mprj/mprj/user_proj_example_1361/HI
- chip_core/mprj/mprj/user_proj_example_1362/HI
- chip_core/mprj/mprj/user_proj_example_1363/HI
- chip_core/mprj/mprj/user_proj_example_1364/HI
- chip_core/mprj/mprj/user_proj_example_1365/HI
- chip_core/mprj/mprj/user_proj_example_1366/HI
- chip_core/mprj/mprj/user_proj_example_1367/HI
- chip_core/mprj/mprj/user_proj_example_1368/HI
- chip_core/mprj/mprj/user_proj_example_1369/HI
- chip_core/mprj/mprj/user_proj_example_1370/HI
- chip_core/mprj/mprj/user_proj_example_1371/HI
- chip_core/mprj/mprj/user_proj_example_1372/HI
- chip_core/mprj/mprj/user_proj_example_1373/HI
- chip_core/mprj/mprj/user_proj_example_1374/HI
- chip_core/mprj/mprj/user_proj_example_1375/HI
- chip_core/mprj/mprj/user_proj_example_1376/HI
- chip_core/mprj/mprj/user_proj_example_1377/LO
- chip_core/mprj/mprj/user_proj_example_1378/LO
- chip_core/mprj/mprj/user_proj_example_1379/LO
- chip_core/mprj/mprj/user_proj_example_1380/LO
- chip_core/mprj/mprj/user_proj_example_1381/LO
- chip_core/mprj/mprj/user_proj_example_1382/LO
- chip_core/mprj/mprj/user_proj_example_1383/LO
- chip_core/mprj/mprj/user_proj_example_1384/LO
+ chip_core/mprj/mprj/user_proj_example_2204/HI
+ chip_core/mprj/mprj/user_proj_example_2205/HI
+ chip_core/mprj/mprj/user_proj_example_2206/HI
+ chip_core/mprj/mprj/user_proj_example_2207/HI
+ chip_core/mprj/mprj/user_proj_example_2208/HI
+ chip_core/mprj/mprj/user_proj_example_2209/HI
+ chip_core/mprj/mprj/user_proj_example_2210/HI
+ chip_core/mprj/mprj/user_proj_example_2211/HI
+ chip_core/mprj/mprj/user_proj_example_2212/HI
+ chip_core/mprj/mprj/user_proj_example_2213/HI
+ chip_core/mprj/mprj/user_proj_example_2214/HI
+ chip_core/mprj/mprj/user_proj_example_2215/HI
+ chip_core/mprj/mprj/user_proj_example_2216/HI
+ chip_core/mprj/mprj/user_proj_example_2217/HI
+ chip_core/mprj/mprj/user_proj_example_2218/HI
+ chip_core/mprj/mprj/user_proj_example_2219/HI
+ chip_core/mprj/mprj/user_proj_example_2220/HI
+ chip_core/mprj/mprj/user_proj_example_2221/HI
+ chip_core/mprj/mprj/user_proj_example_2222/HI
+ chip_core/mprj/mprj/user_proj_example_2223/HI
+ chip_core/mprj/mprj/user_proj_example_2224/HI
+ chip_core/mprj/mprj/user_proj_example_2225/HI
+ chip_core/mprj/mprj/user_proj_example_2226/HI
+ chip_core/mprj/mprj/user_proj_example_2227/HI
+ chip_core/mprj/mprj/user_proj_example_2228/HI
+ chip_core/mprj/mprj/user_proj_example_2229/HI
+ chip_core/mprj/mprj/user_proj_example_2230/HI
+ chip_core/mprj/mprj/user_proj_example_2231/HI
+ chip_core/mprj/mprj/user_proj_example_2232/HI
+ chip_core/mprj/mprj/user_proj_example_2233/HI
+ chip_core/mprj/mprj/user_proj_example_2234/HI
+ chip_core/mprj/mprj/user_proj_example_2235/HI
+ chip_core/mprj/mprj/user_proj_example_2236/HI
+ chip_core/mprj/mprj/user_proj_example_2237/HI
+ chip_core/mprj/mprj/user_proj_example_2238/HI
+ chip_core/mprj/mprj/user_proj_example_2239/HI
+ chip_core/mprj/mprj/user_proj_example_2240/HI
+ chip_core/mprj/mprj/user_proj_example_2241/HI
+ chip_core/mprj/mprj/user_proj_example_2242/HI
+ chip_core/mprj/mprj/user_proj_example_2243/HI
+ chip_core/mprj/mprj/user_proj_example_2244/HI
+ chip_core/mprj/mprj/user_proj_example_2245/LO
+ chip_core/mprj/mprj/user_proj_example_2246/LO
+ chip_core/mprj/mprj/user_proj_example_2247/LO
+ chip_core/mprj/mprj/user_proj_example_2248/LO
+ chip_core/mprj/mprj/user_proj_example_2249/LO
+ chip_core/mprj/mprj/user_proj_example_2250/LO
+ chip_core/mprj/mprj/user_proj_example_2251/LO
+ chip_core/mprj/mprj/user_proj_example_2252/LO
  chip_core/mprj_1381/HI
  chip_core/mprj_1382/HI
  chip_core/pll.ringosc.iss.const1/LO
@@ -2423,54 +2318,73 @@ Found 2424 unannotated drivers.
  padframe/user2_vssd_lvclamp_pad/AMUXBUS_A
  padframe/user2_vssd_lvclamp_pad/AMUXBUS_B
  padframe/user2_vssd_lvclamp_pad/VSSD_PAD
-Found 994 partially unannotated drivers.
+Found 1004 partially unannotated drivers.
  chip_core/_23773_/X
-  chip_core/mprj/mprj/hold185/A
+  chip_core/mprj/mprj/hold428/A
  chip_core/_23776_/X
-  chip_core/mprj/mprj/hold986/A
+  chip_core/mprj/mprj/hold454/A
+ chip_core/_23865_/X
+  chip_core/mprj/mprj/input14/A
+ chip_core/_23866_/X
+  chip_core/mprj/mprj/hold283/A
+ chip_core/_23867_/X
+  chip_core/mprj/mprj/hold875/A
+ chip_core/_23868_/X
+  chip_core/mprj/mprj/hold263/A
+ chip_core/_23869_/X
+  chip_core/mprj/mprj/hold314/A
+ chip_core/_23993_/X
+  chip_core/mprj/mprj/input9/A
+ chip_core/_23994_/X
+  chip_core/mprj/mprj/hold193/A
+ chip_core/_23995_/X
+  chip_core/mprj/mprj/hold1390/A
+ chip_core/_23996_/X
+  chip_core/mprj/mprj/hold337/A
+ chip_core/_23997_/X
+  chip_core/mprj/mprj/hold335/A
  chip_core/_24057_/X
-  chip_core/mprj/mprj/hold1725/A
+  chip_core/mprj/mprj/hold1274/A
  chip_core/_24058_/X
-  chip_core/mprj/mprj/hold1004/A
+  chip_core/mprj/mprj/hold1295/A
  chip_core/_24059_/X
-  chip_core/mprj/mprj/ANTENNA_291/DIODE
-  chip_core/mprj/mprj/hold1666/A
+  chip_core/mprj/mprj/hold1369/A
  chip_core/_24071_/X
-  chip_core/mprj/mprj/hold1200/A
+  chip_core/mprj/mprj/hold1901/A
  chip_core/_24072_/X
-  chip_core/mprj/mprj/hold1171/A
+  chip_core/mprj/mprj/hold1805/A
  chip_core/_24074_/X
-  chip_core/mprj/mprj/hold1312/A
+  chip_core/mprj/mprj/hold2081/A
  chip_core/_24075_/X
-  chip_core/mprj/mprj/hold1287/A
+  chip_core/mprj/mprj/hold1531/A
  chip_core/_24076_/X
-  chip_core/mprj/mprj/hold1336/A
+  chip_core/mprj/mprj/hold2054/A
  chip_core/_24077_/X
-  chip_core/mprj/mprj/hold1361/A
+  chip_core/mprj/mprj/hold2221/A
  chip_core/_24078_/X
-  chip_core/mprj/mprj/hold1056/A
+  chip_core/mprj/mprj/hold2026/A
  chip_core/_24079_/X
-  chip_core/mprj/mprj/hold639/A
+  chip_core/mprj/mprj/hold2235/A
  chip_core/_24080_/X
-  chip_core/mprj/mprj/hold1262/A
+  chip_core/mprj/mprj/hold2226/A
  chip_core/_24081_/X
-  chip_core/mprj/mprj/hold1080/A
+  chip_core/mprj/mprj/hold1999/A
  chip_core/_24082_/X
-  chip_core/mprj/mprj/hold1453/A
+  chip_core/mprj/mprj/hold2207/A
  chip_core/_24083_/X
-  chip_core/mprj/mprj/hold778/A
+  chip_core/mprj/mprj/hold1555/A
  chip_core/_24084_/X
-  chip_core/mprj/mprj/hold1429/A
+  chip_core/mprj/mprj/hold2223/A
  chip_core/_24085_/X
-  chip_core/mprj/mprj/hold1549/A
+  chip_core/mprj/mprj/hold2231/A
  chip_core/_24086_/X
-  chip_core/mprj/mprj/hold1477/A
+  chip_core/mprj/mprj/hold2238/A
  chip_core/_24087_/X
-  chip_core/mprj/mprj/hold1525/A
+  chip_core/mprj/mprj/hold1972/A
  chip_core/_24088_/X
-  chip_core/mprj/mprj/hold1501/A
+  chip_core/mprj/mprj/hold2210/A
  chip_core/_24097_/X
-  chip_core/mprj/mprj/clkbuf_0_wb_clk_i/A
+  chip_core/mprj/mprj/_09417_/A1
  chip_core/_24251_/X
   chip_core/mprj/mprj/input4/A
  chip_core/_24252_/X
@@ -2639,18 +2553,120 @@ Found 994 partially unannotated drivers.
  chip_core/gpio_defaults_block_8/gpio_default_value\[1\]/LO
  chip_core/gpio_defaults_block_9/gpio_default_value\[10\]/LO
  chip_core/gpio_defaults_block_9/gpio_default_value\[1\]/LO
- chip_core/mprj/mprj/hold184/X
- chip_core/mprj/mprj/hold193/X
- chip_core/mprj/mprj/output57/X
- chip_core/mprj/mprj/output58/X
- chip_core/mprj/mprj/output59/X
- chip_core/mprj/mprj/output60/X
- chip_core/mprj/mprj/output61/X
- chip_core/mprj/mprj/output62/X
- chip_core/mprj/mprj/output63/X
- chip_core/mprj/mprj/output64/X
- chip_core/mprj/mprj/output65/X
- chip_core/mprj/mprj/output66/X
+ chip_core/mprj/mprj/hold368/X
+ chip_core/mprj/mprj/hold375/X
+ chip_core/mprj/mprj/hold403/X
+ chip_core/mprj/mprj/output100/X
+ chip_core/mprj/mprj/output101/X
+ chip_core/mprj/mprj/output102/X
+ chip_core/mprj/mprj/output103/X
+ chip_core/mprj/mprj/output104/X
+ chip_core/mprj/mprj/output105/X
+ chip_core/mprj/mprj/output106/X
+ chip_core/mprj/mprj/output107/X
+ chip_core/mprj/mprj/output108/X
+ chip_core/mprj/mprj/output109/X
+ chip_core/mprj/mprj/output110/X
+ chip_core/mprj/mprj/output111/X
+ chip_core/mprj/mprj/output112/X
+ chip_core/mprj/mprj/output113/X
+ chip_core/mprj/mprj/output114/X
+ chip_core/mprj/mprj/output115/X
+ chip_core/mprj/mprj/output116/X
+ chip_core/mprj/mprj/output117/X
+ chip_core/mprj/mprj/output118/X
+ chip_core/mprj/mprj/output119/X
+ chip_core/mprj/mprj/output120/X
+ chip_core/mprj/mprj/output121/X
+ chip_core/mprj/mprj/output122/X
+ chip_core/mprj/mprj/output123/X
+ chip_core/mprj/mprj/output124/X
+ chip_core/mprj/mprj/output125/X
+ chip_core/mprj/mprj/output126/X
+ chip_core/mprj/mprj/output127/X
+ chip_core/mprj/mprj/output128/X
+ chip_core/mprj/mprj/output129/X
+ chip_core/mprj/mprj/output130/X
+ chip_core/mprj/mprj/output131/X
+ chip_core/mprj/mprj/output132/X
+ chip_core/mprj/mprj/output133/X
+ chip_core/mprj/mprj/output134/X
+ chip_core/mprj/mprj/output135/X
+ chip_core/mprj/mprj/output136/X
+ chip_core/mprj/mprj/output137/X
+ chip_core/mprj/mprj/output138/X
+ chip_core/mprj/mprj/output139/X
+ chip_core/mprj/mprj/output140/X
+ chip_core/mprj/mprj/output141/X
+ chip_core/mprj/mprj/output142/X
+ chip_core/mprj/mprj/output143/X
+ chip_core/mprj/mprj/output144/X
+ chip_core/mprj/mprj/output145/X
+ chip_core/mprj/mprj/output146/X
+ chip_core/mprj/mprj/output147/X
+ chip_core/mprj/mprj/output148/X
+ chip_core/mprj/mprj/output149/X
+ chip_core/mprj/mprj/output150/X
+ chip_core/mprj/mprj/output151/X
+ chip_core/mprj/mprj/output152/X
+ chip_core/mprj/mprj/output153/X
+ chip_core/mprj/mprj/output154/X
+ chip_core/mprj/mprj/output155/X
+ chip_core/mprj/mprj/output156/X
+ chip_core/mprj/mprj/output157/X
+ chip_core/mprj/mprj/output158/X
+ chip_core/mprj/mprj/output159/X
+ chip_core/mprj/mprj/output160/X
+ chip_core/mprj/mprj/output161/X
+ chip_core/mprj/mprj/output162/X
+ chip_core/mprj/mprj/output163/X
+ chip_core/mprj/mprj/output164/X
+ chip_core/mprj/mprj/output165/X
+ chip_core/mprj/mprj/output166/X
+ chip_core/mprj/mprj/output167/X
+ chip_core/mprj/mprj/output168/X
+ chip_core/mprj/mprj/output169/X
+ chip_core/mprj/mprj/output170/X
+ chip_core/mprj/mprj/output171/X
+ chip_core/mprj/mprj/output172/X
+ chip_core/mprj/mprj/output173/X
+ chip_core/mprj/mprj/output174/X
+ chip_core/mprj/mprj/output175/X
+ chip_core/mprj/mprj/output176/X
+ chip_core/mprj/mprj/output177/X
+ chip_core/mprj/mprj/output178/X
+ chip_core/mprj/mprj/output180/X
+ chip_core/mprj/mprj/output181/X
+ chip_core/mprj/mprj/output182/X
+ chip_core/mprj/mprj/output183/X
+ chip_core/mprj/mprj/output184/X
+ chip_core/mprj/mprj/output185/X
+ chip_core/mprj/mprj/output186/X
+ chip_core/mprj/mprj/output187/X
+ chip_core/mprj/mprj/output188/X
+ chip_core/mprj/mprj/output189/X
+ chip_core/mprj/mprj/output190/X
+ chip_core/mprj/mprj/output191/X
+ chip_core/mprj/mprj/output192/X
+ chip_core/mprj/mprj/output193/X
+ chip_core/mprj/mprj/output194/X
+ chip_core/mprj/mprj/output195/X
+ chip_core/mprj/mprj/output196/X
+ chip_core/mprj/mprj/output197/X
+ chip_core/mprj/mprj/output198/X
+ chip_core/mprj/mprj/output199/X
+ chip_core/mprj/mprj/output200/X
+ chip_core/mprj/mprj/output201/X
+ chip_core/mprj/mprj/output202/X
+ chip_core/mprj/mprj/output204/X
+ chip_core/mprj/mprj/output205/X
+ chip_core/mprj/mprj/output206/X
+ chip_core/mprj/mprj/output207/X
+ chip_core/mprj/mprj/output208/X
+ chip_core/mprj/mprj/output209/X
+ chip_core/mprj/mprj/output210/X
+ chip_core/mprj/mprj/output212/X
+ chip_core/mprj/mprj/output213/X
  chip_core/mprj/mprj/output67/X
  chip_core/mprj/mprj/output68/X
  chip_core/mprj/mprj/output69/X
@@ -2671,8 +2687,10 @@ Found 994 partially unannotated drivers.
  chip_core/mprj/mprj/output84/X
  chip_core/mprj/mprj/output85/X
  chip_core/mprj/mprj/output86/X
+ chip_core/mprj/mprj/output87/X
  chip_core/mprj/mprj/output88/X
  chip_core/mprj/mprj/output89/X
+ chip_core/mprj/mprj/output90/X
  chip_core/mprj/mprj/output91/X
  chip_core/mprj/mprj/output92/X
  chip_core/mprj/mprj/output93/X
@@ -2681,164 +2699,60 @@ Found 994 partially unannotated drivers.
  chip_core/mprj/mprj/output96/X
  chip_core/mprj/mprj/output97/X
  chip_core/mprj/mprj/output98/X
- chip_core/mprj/mprj/user_proj_example_1231/LO
- chip_core/mprj/mprj/user_proj_example_1232/LO
- chip_core/mprj/mprj/user_proj_example_1233/LO
- chip_core/mprj/mprj/user_proj_example_1234/LO
- chip_core/mprj/mprj/user_proj_example_1235/LO
- chip_core/mprj/mprj/user_proj_example_1236/LO
- chip_core/mprj/mprj/user_proj_example_1237/LO
- chip_core/mprj/mprj/user_proj_example_1238/LO
- chip_core/mprj/mprj/user_proj_example_1239/LO
- chip_core/mprj/mprj/user_proj_example_1240/LO
- chip_core/mprj/mprj/user_proj_example_1241/LO
- chip_core/mprj/mprj/user_proj_example_1242/LO
- chip_core/mprj/mprj/user_proj_example_1243/LO
- chip_core/mprj/mprj/user_proj_example_1244/LO
- chip_core/mprj/mprj/user_proj_example_1245/LO
- chip_core/mprj/mprj/user_proj_example_1246/LO
- chip_core/mprj/mprj/user_proj_example_1247/LO
- chip_core/mprj/mprj/user_proj_example_1248/LO
- chip_core/mprj/mprj/user_proj_example_1249/LO
- chip_core/mprj/mprj/user_proj_example_1250/LO
- chip_core/mprj/mprj/user_proj_example_1251/LO
- chip_core/mprj/mprj/user_proj_example_1252/LO
- chip_core/mprj/mprj/user_proj_example_1253/LO
- chip_core/mprj/mprj/user_proj_example_1254/LO
- chip_core/mprj/mprj/user_proj_example_1255/LO
- chip_core/mprj/mprj/user_proj_example_1256/LO
- chip_core/mprj/mprj/user_proj_example_1257/LO
- chip_core/mprj/mprj/user_proj_example_1258/LO
- chip_core/mprj/mprj/user_proj_example_1259/LO
- chip_core/mprj/mprj/user_proj_example_1260/LO
- chip_core/mprj/mprj/user_proj_example_1261/LO
- chip_core/mprj/mprj/user_proj_example_1262/LO
- chip_core/mprj/mprj/user_proj_example_1263/LO
- chip_core/mprj/mprj/user_proj_example_1264/LO
- chip_core/mprj/mprj/user_proj_example_1265/LO
- chip_core/mprj/mprj/user_proj_example_1266/LO
- chip_core/mprj/mprj/user_proj_example_1267/LO
- chip_core/mprj/mprj/user_proj_example_1268/LO
- chip_core/mprj/mprj/user_proj_example_1269/LO
- chip_core/mprj/mprj/user_proj_example_1270/LO
- chip_core/mprj/mprj/user_proj_example_1271/LO
- chip_core/mprj/mprj/user_proj_example_1272/LO
- chip_core/mprj/mprj/user_proj_example_1273/LO
- chip_core/mprj/mprj/user_proj_example_1274/LO
- chip_core/mprj/mprj/user_proj_example_1275/LO
- chip_core/mprj/mprj/user_proj_example_1276/LO
- chip_core/mprj/mprj/user_proj_example_1277/LO
- chip_core/mprj/mprj/user_proj_example_1278/LO
- chip_core/mprj/mprj/user_proj_example_1279/LO
- chip_core/mprj/mprj/user_proj_example_1280/LO
- chip_core/mprj/mprj/user_proj_example_1281/LO
- chip_core/mprj/mprj/user_proj_example_1282/LO
- chip_core/mprj/mprj/user_proj_example_1283/LO
- chip_core/mprj/mprj/user_proj_example_1284/LO
- chip_core/mprj/mprj/user_proj_example_1285/LO
- chip_core/mprj/mprj/user_proj_example_1286/LO
- chip_core/mprj/mprj/user_proj_example_1287/LO
- chip_core/mprj/mprj/user_proj_example_1288/LO
- chip_core/mprj/mprj/user_proj_example_1289/LO
- chip_core/mprj/mprj/user_proj_example_1290/LO
- chip_core/mprj/mprj/user_proj_example_1291/LO
- chip_core/mprj/mprj/user_proj_example_1292/LO
- chip_core/mprj/mprj/user_proj_example_1293/LO
- chip_core/mprj/mprj/user_proj_example_1294/LO
- chip_core/mprj/mprj/user_proj_example_1295/LO
- chip_core/mprj/mprj/user_proj_example_1296/LO
- chip_core/mprj/mprj/user_proj_example_1297/LO
- chip_core/mprj/mprj/user_proj_example_1298/LO
- chip_core/mprj/mprj/user_proj_example_1299/LO
- chip_core/mprj/mprj/user_proj_example_1300/LO
- chip_core/mprj/mprj/user_proj_example_1301/LO
- chip_core/mprj/mprj/user_proj_example_1302/LO
- chip_core/mprj/mprj/user_proj_example_1303/LO
- chip_core/mprj/mprj/user_proj_example_1304/LO
- chip_core/mprj/mprj/user_proj_example_1305/LO
- chip_core/mprj/mprj/user_proj_example_1306/LO
- chip_core/mprj/mprj/user_proj_example_1307/LO
- chip_core/mprj/mprj/user_proj_example_1308/LO
- chip_core/mprj/mprj/user_proj_example_1309/LO
- chip_core/mprj/mprj/user_proj_example_1310/LO
- chip_core/mprj/mprj/user_proj_example_1311/LO
- chip_core/mprj/mprj/user_proj_example_1312/LO
- chip_core/mprj/mprj/user_proj_example_1313/LO
- chip_core/mprj/mprj/user_proj_example_1314/LO
- chip_core/mprj/mprj/user_proj_example_1315/LO
- chip_core/mprj/mprj/user_proj_example_1316/LO
- chip_core/mprj/mprj/user_proj_example_1317/LO
- chip_core/mprj/mprj/user_proj_example_1318/LO
- chip_core/mprj/mprj/user_proj_example_1319/LO
- chip_core/mprj/mprj/user_proj_example_1320/LO
- chip_core/mprj/mprj/user_proj_example_1321/LO
- chip_core/mprj/mprj/user_proj_example_1322/LO
- chip_core/mprj/mprj/user_proj_example_1323/LO
- chip_core/mprj/mprj/user_proj_example_1324/LO
- chip_core/mprj/mprj/user_proj_example_1325/LO
- chip_core/mprj/mprj/user_proj_example_1326/LO
- chip_core/mprj/mprj/user_proj_example_1327/LO
- chip_core/mprj/mprj/user_proj_example_1328/LO
- chip_core/mprj/mprj/user_proj_example_1329/LO
- chip_core/mprj/mprj/user_proj_example_1330/LO
- chip_core/mprj/mprj/user_proj_example_1331/LO
- chip_core/mprj/mprj/user_proj_example_1332/LO
- chip_core/mprj/mprj/user_proj_example_1333/LO
- chip_core/mprj/mprj/user_proj_example_1334/LO
- chip_core/mprj/mprj/user_proj_example_1335/LO
- chip_core/mprj/mprj/user_proj_example_1336/LO
- chip_core/mprj/mprj/user_proj_example_1337/LO
- chip_core/mprj/mprj/user_proj_example_1338/LO
- chip_core/mprj/mprj/user_proj_example_1339/LO
- chip_core/mprj/mprj/user_proj_example_1340/LO
- chip_core/mprj/mprj/user_proj_example_1341/LO
- chip_core/mprj/mprj/user_proj_example_1342/LO
- chip_core/mprj/mprj/user_proj_example_1343/LO
- chip_core/mprj/mprj/user_proj_example_1344/LO
- chip_core/mprj/mprj/user_proj_example_1345/LO
- chip_core/mprj/mprj/user_proj_example_1346/LO
- chip_core/mprj/mprj/user_proj_example_1347/LO
- chip_core/mprj/mprj/user_proj_example_1348/LO
- chip_core/mprj/mprj/user_proj_example_1349/LO
- chip_core/mprj/mprj/user_proj_example_1350/LO
- chip_core/mprj/mprj/user_proj_example_1351/LO
- chip_core/mprj/mprj/user_proj_example_1352/LO
- chip_core/mprj/mprj/user_proj_example_1353/LO
- chip_core/mprj/mprj/user_proj_example_1354/LO
- chip_core/mprj/mprj/user_proj_example_1355/LO
- chip_core/mprj/mprj/user_proj_example_1356/LO
- chip_core/mprj/mprj/user_proj_example_1357/LO
- chip_core/mprj/mprj/user_proj_example_1358/LO
- chip_core/mprj/mprj/user_proj_example_1359/LO
- chip_core/mprj/mprj/user_proj_example_1360/LO
- chip_core/mprj/mprj/user_proj_example_1361/LO
- chip_core/mprj/mprj/user_proj_example_1362/LO
- chip_core/mprj/mprj/user_proj_example_1363/LO
- chip_core/mprj/mprj/user_proj_example_1364/LO
- chip_core/mprj/mprj/user_proj_example_1365/LO
- chip_core/mprj/mprj/user_proj_example_1366/LO
- chip_core/mprj/mprj/user_proj_example_1367/LO
- chip_core/mprj/mprj/user_proj_example_1368/LO
- chip_core/mprj/mprj/user_proj_example_1369/LO
- chip_core/mprj/mprj/user_proj_example_1370/LO
- chip_core/mprj/mprj/user_proj_example_1371/LO
- chip_core/mprj/mprj/user_proj_example_1372/LO
- chip_core/mprj/mprj/user_proj_example_1373/LO
- chip_core/mprj/mprj/user_proj_example_1374/LO
- chip_core/mprj/mprj/user_proj_example_1375/LO
- chip_core/mprj/mprj/user_proj_example_1376/LO
- chip_core/mprj/mprj/user_proj_example_1377/HI
- chip_core/mprj/mprj/user_proj_example_1378/HI
- chip_core/mprj/mprj/user_proj_example_1379/HI
- chip_core/mprj/mprj/user_proj_example_1380/HI
- chip_core/mprj/mprj/user_proj_example_1381/HI
- chip_core/mprj/mprj/user_proj_example_1382/HI
- chip_core/mprj/mprj/user_proj_example_1383/HI
- chip_core/mprj/mprj/user_proj_example_1384/HI
+ chip_core/mprj/mprj/output99/X
+ chip_core/mprj/mprj/user_proj_example_2204/LO
+ chip_core/mprj/mprj/user_proj_example_2205/LO
+ chip_core/mprj/mprj/user_proj_example_2206/LO
+ chip_core/mprj/mprj/user_proj_example_2207/LO
+ chip_core/mprj/mprj/user_proj_example_2208/LO
+ chip_core/mprj/mprj/user_proj_example_2209/LO
+ chip_core/mprj/mprj/user_proj_example_2210/LO
+ chip_core/mprj/mprj/user_proj_example_2211/LO
+ chip_core/mprj/mprj/user_proj_example_2212/LO
+ chip_core/mprj/mprj/user_proj_example_2213/LO
+ chip_core/mprj/mprj/user_proj_example_2214/LO
+ chip_core/mprj/mprj/user_proj_example_2215/LO
+ chip_core/mprj/mprj/user_proj_example_2216/LO
+ chip_core/mprj/mprj/user_proj_example_2217/LO
+ chip_core/mprj/mprj/user_proj_example_2218/LO
+ chip_core/mprj/mprj/user_proj_example_2219/LO
+ chip_core/mprj/mprj/user_proj_example_2220/LO
+ chip_core/mprj/mprj/user_proj_example_2221/LO
+ chip_core/mprj/mprj/user_proj_example_2222/LO
+ chip_core/mprj/mprj/user_proj_example_2223/LO
+ chip_core/mprj/mprj/user_proj_example_2224/LO
+ chip_core/mprj/mprj/user_proj_example_2225/LO
+ chip_core/mprj/mprj/user_proj_example_2226/LO
+ chip_core/mprj/mprj/user_proj_example_2227/LO
+ chip_core/mprj/mprj/user_proj_example_2228/LO
+ chip_core/mprj/mprj/user_proj_example_2229/LO
+ chip_core/mprj/mprj/user_proj_example_2230/LO
+ chip_core/mprj/mprj/user_proj_example_2231/LO
+ chip_core/mprj/mprj/user_proj_example_2232/LO
+ chip_core/mprj/mprj/user_proj_example_2233/LO
+ chip_core/mprj/mprj/user_proj_example_2234/LO
+ chip_core/mprj/mprj/user_proj_example_2235/LO
+ chip_core/mprj/mprj/user_proj_example_2236/LO
+ chip_core/mprj/mprj/user_proj_example_2237/LO
+ chip_core/mprj/mprj/user_proj_example_2238/LO
+ chip_core/mprj/mprj/user_proj_example_2239/LO
+ chip_core/mprj/mprj/user_proj_example_2240/LO
+ chip_core/mprj/mprj/user_proj_example_2241/LO
+ chip_core/mprj/mprj/user_proj_example_2242/LO
+ chip_core/mprj/mprj/user_proj_example_2243/LO
+ chip_core/mprj/mprj/user_proj_example_2244/LO
+ chip_core/mprj/mprj/user_proj_example_2245/HI
+ chip_core/mprj/mprj/user_proj_example_2246/HI
+ chip_core/mprj/mprj/user_proj_example_2247/HI
+ chip_core/mprj/mprj/user_proj_example_2248/HI
+ chip_core/mprj/mprj/user_proj_example_2249/HI
+ chip_core/mprj/mprj/user_proj_example_2250/HI
+ chip_core/mprj/mprj/user_proj_example_2251/HI
+ chip_core/mprj/mprj/user_proj_example_2252/HI
  chip_core/mprj_1381/LO
-  chip_core/mprj/mprj/input10/A
+  chip_core/mprj/mprj/input20/A
  chip_core/mprj_1382/LO
-  chip_core/mprj/mprj/input11/A
+  chip_core/mprj/mprj/input21/A
  chip_core/output1000/X
   padframe/mprj_pads.area2_io_pad\[3\]/SLOW
  chip_core/output1001/X
@@ -3899,55 +3813,54 @@ Found 994 partially unannotated drivers.
  chip_core/user_id_value/mask_rev_value\[8\]/LO
  chip_core/user_id_value/mask_rev_value\[9\]/LO
  chip_core/wire1071/X
-  chip_core/mprj/mprj/hold1772/A
+  chip_core/mprj/mprj/hold1353/A
  chip_core/wire1073/X
-  chip_core/mprj/mprj/hold1620/A
+  chip_core/mprj/mprj/hold1955/A
  chip_core/wire1088/X
-  chip_core/mprj/mprj/hold1748/A
+  chip_core/mprj/mprj/hold1962/A
  chip_core/wire1089/X
-  chip_core/mprj/mprj/input15/A
+  chip_core/mprj/mprj/hold397/A
  chip_core/wire1094/X
-  chip_core/mprj/mprj/hold1185/A
+  chip_core/mprj/mprj/hold2251/A
  chip_core/wire1095/X
-  chip_core/mprj/mprj/hold548/A
+  chip_core/mprj/mprj/hold1877/A
  chip_core/wire1096/X
-  chip_core/mprj/mprj/hold516/A
+  chip_core/mprj/mprj/hold2158/A
  chip_core/wire1097/X
-  chip_core/mprj/mprj/hold1104/A
+  chip_core/mprj/mprj/hold2109/A
  chip_core/wire1098/X
-  chip_core/mprj/mprj/hold1229/A
+  chip_core/mprj/mprj/hold2134/A
  chip_core/wire1099/X
-  chip_core/mprj/mprj/hold1215/A
+  chip_core/mprj/mprj/hold1829/A
  chip_core/wire1100/X
-  chip_core/mprj/mprj/hold1689/A
+  chip_core/mprj/mprj/hold1342/A
  chip_core/wire1101/X
-  chip_core/mprj/mprj/hold1597/A
+  chip_core/mprj/mprj/hold1380/A
  chip_core/wire1102/X
-  chip_core/mprj/mprj/hold1643/A
+  chip_core/mprj/mprj/hold1948/A
  chip_core/wire1103/X
-  chip_core/mprj/mprj/input13/A
+  chip_core/mprj/mprj/hold439/A
  chip_core/wire1104/X
-  chip_core/mprj/mprj/hold1737/A
+  chip_core/mprj/mprj/ANTENNA_347/DIODE
+  chip_core/mprj/mprj/hold469/A
  chip_core/wire1107/X
-  chip_core/mprj/mprj/ANTENNA_38/DIODE
-  chip_core/mprj/mprj/hold1573/A
+  chip_core/mprj/mprj/hold1283/A
  chip_core/wire1110/X
-  chip_core/mprj/mprj/hold194/A
+  chip_core/mprj/mprj/hold404/A
  chip_core/wire1121/X
-  chip_core/mprj/mprj/hold1386/A
+  chip_core/mprj/mprj/hold2229/A
  chip_core/wire1422/X
-  chip_core/mprj/mprj/hold1028/A
+  chip_core/mprj/mprj/hold1337/A
  chip_core/wire1552/X
-  chip_core/mprj/mprj/hold1243/A
+  chip_core/mprj/mprj/hold2194/A
  chip_core/wire1606/X
-  chip_core/mprj/mprj/hold1147/A
+  chip_core/mprj/mprj/hold2242/A
  chip_core/wire1607/X
-  chip_core/mprj/mprj/ANTENNA_39/DIODE
-  chip_core/mprj/mprj/hold1712/A
+  chip_core/mprj/mprj/hold1255/A
  chip_core/wire1797/X
-  chip_core/mprj/mprj/hold1410/A
+  chip_core/mprj/mprj/hold2180/A
  chip_core/wire2723/X
-  chip_core/mprj/mprj/hold168/A
+  chip_core/mprj/mprj/hold161/A
  padframe/clock_pad/IN
  padframe/constant_value_inst\[0\]/const_one_buf/X
   padframe/clock_pad/ENABLE_VDDIO

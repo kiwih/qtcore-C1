@@ -139,55 +139,55 @@ module wb_port_tb;
 	`endif 
 
 	initial begin
-        wait(uut.chip_core.mprj.mprj.proc_go);
+        wait(uut.chip_core.mprj.mprj.p0_proc_go);
         $display("proc_go is high");
         $display("Reserved: %b, CU: %b, SEG: %b, PC: %x, IR: %x, ACC: %x",
-            uut.chip_core.mprj.mprj.qtcore_C1.ctrl_unit.reserved_register.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.ctrl_unit.state_register.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.SEG_Register.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.PC_Register.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.IR_Register.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.ACC_Register.internal_data);
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.ctrl_unit.reserved_register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.ctrl_unit.state_register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.SEG_Register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.PC_Register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.IR_Register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.ACC_Register.internal_data);
 
         $display("SEGEXE_L: %b, SEGEXE_H: %b, IO_IN: %b, IO_OUT: %b",
-            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.segexe_l_reg.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.segexe_h_reg.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.io_in_reg.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.io_out_reg.internal_data);
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.csr_inst.segexe_l_reg.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.csr_inst.segexe_h_reg.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.csr_inst.io_in_reg.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.csr_inst.io_out_reg.internal_data);
         
         $display("MEM[0]: %x, MEM[1]: %x, MEM[2]: %x, MEM[3]: %x, MEM[4]: %x, MEM[14]: %x, MEM[15]: %x",
-            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[0].mem_cell.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[1].mem_cell.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[2].mem_cell.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[3].mem_cell.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[4].mem_cell.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[14].mem_cell.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[15].mem_cell.internal_data);
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.mem_bank.memory[0].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.mem_bank.memory[1].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.mem_bank.memory[2].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.mem_bank.memory[3].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.mem_bank.memory[4].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.mem_bank.memory[14].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.mem_bank.memory[15].mem_cell.internal_data);
 
-        wait(uut.chip_core.mprj.mprj.halt_out);
+        wait(uut.chip_core.mprj.mprj.p0_halt_out);
         $display("halt_out is high");
         $display("Reserved: %b, CU: %b, SEG: %b, PC: %x, IR: %x, ACC: %x",
-            uut.chip_core.mprj.mprj.qtcore_C1.ctrl_unit.reserved_register.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.ctrl_unit.state_register.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.SEG_Register.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.PC_Register.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.IR_Register.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.ACC_Register.internal_data);
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.ctrl_unit.reserved_register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.ctrl_unit.state_register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.SEG_Register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.PC_Register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.IR_Register.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.ACC_Register.internal_data);
 
         $display("SEGEXE_L: %b, SEGEXE_H: %b, IO_IN: %b, IO_OUT: %b",
-            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.segexe_l_reg.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.segexe_h_reg.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.io_in_reg.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.csr_inst.io_out_reg.internal_data);
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.csr_inst.segexe_l_reg.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.csr_inst.segexe_h_reg.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.csr_inst.io_in_reg.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.csr_inst.io_out_reg.internal_data);
         
         $display("MEM[0]: %x, MEM[1]: %x, MEM[2]: %x, MEM[3]: %x, MEM[4]: %x, MEM[14]: %x, MEM[15]: %x",
-            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[0].mem_cell.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[1].mem_cell.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[2].mem_cell.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[3].mem_cell.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[4].mem_cell.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[14].mem_cell.internal_data,
-            uut.chip_core.mprj.mprj.qtcore_C1.mem_bank.memory[15].mem_cell.internal_data);
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.mem_bank.memory[0].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.mem_bank.memory[1].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.mem_bank.memory[2].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.mem_bank.memory[3].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.mem_bank.memory[4].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.mem_bank.memory[14].mem_cell.internal_data,
+            uut.chip_core.mprj.mprj.qtcore_C1_p0.mem_bank.memory[15].mem_cell.internal_data);
     end
 
 

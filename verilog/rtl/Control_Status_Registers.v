@@ -7,6 +7,7 @@ module Control_Status_Registers #(
     input wire [WIDTH-1:0] data_in,
     input wire wr_enable,
     input wire [WIDTH-1:0] IO_IN,
+    input wire [WIDTH-1:0] SIG_IN,  // New input signal SIG_IN
     input wire processor_enable,
     input wire scan_enable,
     input wire scan_in,
@@ -14,6 +15,7 @@ module Control_Status_Registers #(
     output wire [WIDTH-1:0] SEGEXE_L_OUT,
     output wire [WIDTH-1:0] SEGEXE_H_OUT,
     output wire [WIDTH-1:0] IO_OUT,
+    output wire [5:0] SIG_OUT,  // New output signal SIG_OUT
     output wire INT_OUT,
     output wire scan_out
 );
@@ -128,11 +130,11 @@ shift_register #(.WIDTH(WIDTH)) cnt_h_reg (
     .scan_out(status_ctrl_scan_out)
   );
 
-  shift_register #(.WIDTH(WIDTH)) temp_reg (
+  shift_register #(.WIDTH(WIDTH)) sig_in_reg (
     .clk(clk),
     .rst(rst),
-    .enable(wr_enable & (addr == 3'b111)),
-    .data_in(data_in),
+    .enable(processor_enable),  // Enable controlled by processor_enable
+    .data_in(SIG_IN),  // Data input is SIG_IN
     .data_out(temp_data),
     .scan_enable(scan_enable),
     .scan_in(status_ctrl_scan_out),
@@ -154,6 +156,6 @@ shift_register #(.WIDTH(WIDTH)) cnt_h_reg (
   assign INT_OUT = status_ctrl_data[0];  // INT_OUT is the bottom bit of status_ctrl_data
 
   assign cnt_update_enable = status_ctrl_data[1];
-
+  assign SIG_OUT = status_ctrl_data[WIDTH-1:WIDTH-6];  // SIG_OUT is the top 6 bits of status_ctrl_data
 
 endmodule
