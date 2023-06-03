@@ -145,7 +145,7 @@ module user_proj_example #(
             if(scan_done_strobe) begin
                 scan_go <= 0;
                 scan_wbs <= scan_io;
-                $display("scan_io unloading, = %b", scan_io);
+                //$display("scan_io unloading, = %b", scan_io);
             end
             if(valid) begin
                 wbs_ack_o <= 1;
@@ -194,7 +194,7 @@ module user_proj_example #(
                 scan_first_cycle == 0 && 
                 scan_done_strobe==0) begin
                 
-                //$display("scan_io loading, = %b", scan_wbs);
+                $display("scan_io loading, = %h", scan_wbs);
                 scan_io <= scan_wbs;
                 scan_cnt <= 5'd31;
                 scan_first_cycle <= 1;

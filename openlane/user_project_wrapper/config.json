@@ -73,7 +73,7 @@
         "DIE_AREA": "0 0 2920 3520",
         "FP_DEF_TEMPLATE": "dir::fixed_dont_change/user_project_wrapper.def",
         "scl::sky130_fd_sc_hd": {
-            "CLOCK_PERIOD": 25
+            "CLOCK_PERIOD": 250
         },
         "scl::sky130_fd_sc_hdll": {
             "CLOCK_PERIOD": 10

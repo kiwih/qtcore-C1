@@ -80,27 +80,42 @@ module Control_Status_Registers #(
     .scan_out(io_out_scan_out)
   );
 
-  shift_register #(.WIDTH(WIDTH)) cnt_l_reg (
+reg cnt_toggle = 0;
+
+always @(posedge clk or posedge rst)
+begin
+    if(rst)
+        cnt_toggle <= 0;
+    else
+        cnt_toggle <= ~cnt_toggle;
+end
+
+wire cnt_update_enable;
+wire [15:0] cnt_update = {cnt_h_data, cnt_l_data} + 1'b1;
+wire cnt_enable = cnt_update_enable & cnt_toggle;
+
+shift_register #(.WIDTH(WIDTH)) cnt_l_reg (
     .clk(clk),
     .rst(rst),
-    .enable(wr_enable & (addr == 3'b100)),
-    .data_in(data_in),
+    .enable(wr_enable & (addr == 3'b100) | cnt_enable),
+    .data_in(wr_enable ? data_in : cnt_update[7:0]),
     .data_out(cnt_l_data),
     .scan_enable(scan_enable),
     .scan_in(io_out_scan_out),
     .scan_out(cnt_l_scan_out)
   );
 
-  shift_register #(.WIDTH(WIDTH)) cnt_h_reg (
+shift_register #(.WIDTH(WIDTH)) cnt_h_reg (
     .clk(clk),
     .rst(rst),
-    .enable(wr_enable & (addr == 3'b101)),
-    .data_in(data_in),
+    .enable(wr_enable & (addr == 3'b101) | cnt_enable),
+    .data_in(wr_enable ? data_in : cnt_update[15:8]),
     .data_out(cnt_h_data),
     .scan_enable(scan_enable),
     .scan_in(cnt_l_scan_out),
     .scan_out(cnt_h_scan_out)
   );
+
 
   shift_register #(.WIDTH(WIDTH)) status_ctrl_reg (
     .clk(clk),
@@ -137,5 +152,8 @@ module Control_Status_Registers #(
   assign SEGEXE_H_OUT = segexe_h_data;
   assign IO_OUT = io_out_data;
   assign INT_OUT = status_ctrl_data[0];  // INT_OUT is the bottom bit of status_ctrl_data
+
+  assign cnt_update_enable = status_ctrl_data[1];
+
 
 endmodule

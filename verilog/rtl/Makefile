@@ -6,7 +6,7 @@ SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
 
 # TOPLEVEL is the name of the toplevel module in your Verilog or VHDL file
-TOPLEVEL = qtcore_a1_4baddr_scan_test
+TOPLEVEL = qtcore_c1_4baddr_scan_test
 
 run_test: test
 	./a.out
@@ -19,7 +19,7 @@ VERILOG_SOURCES += $(PWD)/accumulator_microcontroller.v \
  $(PWD)/Control_Status_Registers.v
 
 test:
-	iverilog -s $(TOPLEVEL) $(VERILOG_SOURCES) $(PWD)/qtcore_a1_4baddr_scan_test.v
+	iverilog -s $(TOPLEVEL) $(VERILOG_SOURCES) $(PWD)/qtcore_c1_4baddr_scan_test.v
 
 clean:
 	rm -rf TEST_PASSES.txt

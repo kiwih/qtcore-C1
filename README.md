@@ -17,9 +17,11 @@ This processor is based on the ideas undertaken in the [Chip-Chat](https://arxiv
 
 The QTCore-C1 is a much more comprehensive design which was made for Efabless's first [AI generated Design Contest](https://efabless.com/ai-generated-design-contest). Targeted to Caravel, it has a lot more space available to it than with Tiny Tapeout. As such, it has a full 256 bytes of instruction and data memory, as well as 8-bit I/O ports, as an internal 16-bit timer, and even memory execution protection across 16-byte segments! Due to these expanded properties, it is a much more complex design with a lot more Verilog code as well as a much more comprehensive ISA, and the two processors, although sharing some similarities, are broadly incompatible.
 
+*What could this be used for?* Practically, you could imagine a little co-processor like this being used for predictable-time I/O state machines, similar to the RP2040's PIO. It helps that this design is quite small, and could be easily replicated many times on a single die. It also has 8-bit I/O, an interrupt output, and a timer, which is quite useful for many applications.
+
 *Why make this design instead of something like RISC-V?*: There are many implementations of open-source processors for ISAs like RISC-V and MIPS. The problem is, that means GPT-4 has seen these designs during training. For Efabless's generative AI contest (and the earlier Chip-Chat work), I didn't want to explore simply the capabilities of GPT-4 to emit data it has trained over - rather, I wanted to see how they performed when making something more novel. As such, I shephereded the models into making wholly new designs, with strange ISAs quite different to what is available in the open-source literature. 
 
-The QTCore-C1 architecture defines a processor with the following components:
+**The QTCore-C1 architecture defines a processor with the following components:**
 
 * Control Unit: 2-cycle FSM for driving the processor (3 bit one-hot encoded state register)
 * Program Counter: 8-bit register containing the current address of the program
@@ -36,8 +38,6 @@ This makes it quite easy to interact with the processor.
 
 The ISA description follows. 
 For your convenience, we also provide an assembler in Python (also written by GPT-4) which makes it quite easy to write simple programs.
-
-
 
 **Instructions with Variable-Data Operands**
 
@@ -286,6 +286,11 @@ In this program observe how we read and write to the I/O, the timer, and the dat
 241: CLR ; sets ACC to 0, but actually we should crash here for being non-executable
 242: JMP 
 ```
+
+## Verification
+
+Two full-design testbenches are provided as `wb_port` and `wb_port_test4`. Additional functional testing is provided in `qtcore_c1_4baddr_scan_test` which is a scan-based testbench, run it with just `make` in the `/verilog/rtl` directory (it's not connected to the global caravel make scripts).
+
 
 ## Forked from the Caravel User Project
 
